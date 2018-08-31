@@ -9,6 +9,7 @@
         }
         .dataset{
             border-collapse: collapse;
+            margin-left: 46.5%;
         }
         .dataset tr th, .dataset tr td{
             border: 1px solid black;
@@ -17,12 +18,12 @@
         }
         .barchart, .linechart, .areachart{
             width: 30%;
-            height: 320px;
+            height: 370px;
             margin-left: 17%;
         }
         .scatterplot{
             width: 30%;
-            height: 320px;
+            height: 370px;
             margin-left: 35%;
         }
         .barchart rect{
@@ -34,12 +35,13 @@
             stroke-width: 3px;
         }
         .areachart path{
-            fill: darkmagenta;
+            fill: #380334;
             stroke: none;
             stroke-width: 3px;
+            opacity: 0.85;
         }
         .scatterplot circle{
-            fill: steelblue;
+            fill: cadetblue;
         }
         .scatterplot rect{
             fill:none;
@@ -68,7 +70,7 @@
 </h4>
 <br>
 <h3> Dataset </h3>
-<table class="dataset" align="center">
+<table class="dataset">
     <tr>
         <th>X</th>
         <th>Y</th>
@@ -150,30 +152,29 @@
         <rect x="0" y="240" height="20" width="94.8"/>
     </g>
 </svg>
-<br>
 <h3>Line Charts</h3>
 <svg class ="linechart">
-    <path d="M 20 120 L 40 160 L 60 60 L 80 140 L 100 100 L 120 40 L 140 200 L 160 240 L 180 80 L 200 180 L 220 220"/>
+    <path d="M 40 140 L 60 180 L 80 80 L 100 160 L 120 120 L 140 60 L 160 220 L 180 260 L 200 100 L 220 200 L 240 240"/>
 </svg>
 <svg class ="linechart" >
-    <line x1="0" y1="137.2" x2="20" y2="157.2" />
-    <line x1="20" y1="157.2" x2="40" y2="145.2"/>
-    <line x1="40" y1="145.2" x2="60" y2="144.6" />
-    <line x1="60" y1="144.6" x2="80" y2="134.8" />
-    <line x1="80" y1="134.8" x2="100" y2="158" />
-    <line x1="100" y1="158" x2="120" y2="197.4" />
-    <line x1="120" y1="197.4" x2="140" y2="258" />
-    <line x1="140" y1="258" x2="160" y2="137.4" />
-    <line x1="160" y1="137.4" x2="180" y2="174.8" />
-    <line x1="180" y1="174.8" x2="200" y2="225.2" />
+    <line x1="20" y1="157.2" x2="40" y2="177.2" />
+    <line x1="40" y1="177.2" x2="60" y2="165.2"/>
+    <line x1="60" y1="165.2" x2="80" y2="164.6" />
+    <line x1="80" y1="164.6" x2="100" y2="154.8" />
+    <line x1="100" y1="154.8" x2="120" y2="178" />
+    <line x1="120" y1="178" x2="140" y2="217.4" />
+    <line x1="140" y1="217.4" x2="160" y2="278" />
+    <line x1="160" y1="278" x2="180" y2="157.4" />
+    <line x1="180" y1="157.4" x2="200" y2="194.8" />
+    <line x1="200" y1="194.8" x2="220" y2="245.2" />
 </svg>
 <br>
 <h3>Area Charts</h3>
 <svg class ="areachart">
-    <path d="M 20 320 L 20 120 L 40 160 L 60 60 L 80 140 L 100 100 L 120 40 L 140 200 L 160 240 L 180 80 L 200 180 L 220 220 L 220 320"/>
+    <path d="M 40 340 L 40 140 L 60 180 L 80 80 L 100 160 L 120 120 L 140 60 L 160 220 L 180 260 L 200 100 L 220 200 L 240 240 L 240 340"/>
 </svg>
 <svg class ="areachart">
-    <path d="M 0 320 L 0 137.2 L 20 157.2 L 40 145.2 L 60 144.6 L 80 134.8 L 100 158 L 120 197.4 L 140 258 L 160 137.4 L 180 174.8 L 200 225.2 L 200 320"/>
+    <path d="M 20 340 L 20 157.2 L 40 177.2 L 60 165.2 L 80 164.6 L 100 154.8 L 120 178 L 140 217.4 L 160 278 L 180 157.4 L 200 194.8 L 220 245.2 L 220 340"/>
 </svg>
 <br>
 <h3>Scatterplot</h3>
@@ -181,17 +182,17 @@
 <br>
 <svg class ="scatterplot" >
     <rect width="90%" height="300" x="20" y="0"/>
-    <circle cx="120" cy="218" r="10"></circle>
-    <circle cx="140" cy="185.2" r="10"></circle>
-    <circle cx="160" cy="157.4" r="10"></circle>
-    <circle cx="180" cy="134.8" r="10"></circle>
-    <circle cx="200" cy="117.2" r="10"></circle>
-    <circle cx="220" cy="104.6" r="10"></circle>
-    <circle cx="240" cy="97.2"  r="10"></circle>
-    <circle cx="260" cy="94.8" r="10"></circle>
-    <circle cx="280" cy="97.4" r="10"></circle>
-    <circle cx="300" cy="105.2" r="10"></circle>
-    <circle cx="320" cy="118" r="10"></circle>
+    <circle cx="100" cy="228" r="10"></circle>
+    <circle cx="120" cy="195.2" r="10"></circle>
+    <circle cx="140" cy="167.4" r="10"></circle>
+    <circle cx="160" cy="144.8" r="10"></circle>
+    <circle cx="180" cy="127.2" r="10"></circle>
+    <circle cx="200" cy="114.6" r="10"></circle>
+    <circle cx="220" cy="107.2"  r="10"></circle>
+    <circle cx="240" cy="104.8" r="10"></circle>
+    <circle cx="260" cy="107.4" r="10"></circle>
+    <circle cx="280" cy="115.2" r="10"></circle>
+    <circle cx="300" cy="128" r="10"></circle>
 </svg>
 </body>
 </html>

@@ -55,11 +55,9 @@ class Tree {
     assignPosition(node, position) {
         this.spot = Math.max(this.spot, position);
         node.position = position;
-
         if (node.children.length > 0) {
             this.assignPosition(node.children[0], position);
         }
-
         for (let i = 1; i < node.children.length; i++) {
             if (this.spot > position) {
                 this.assignPosition(node.children[i], this.spot+1);

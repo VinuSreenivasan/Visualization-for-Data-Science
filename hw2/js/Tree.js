@@ -34,21 +34,8 @@ class Tree {
                 }
             }
         }
-
         this.assignLevel(root, 0);
         this.assignPosition(root, 0);
-
-        this.nodeList.forEach(function(d) {
-            let minPosition = 1000;
-            if (d.children.length != 0) {
-                d.children.forEach(function (n) {
-                    if (minPosition > n.position) {
-                        minPosition = n.position;
-                    }
-                });
-                d.position = minPosition;
-            }
-        });
     }
 
     /**
@@ -66,6 +53,18 @@ class Tree {
      */
     assignPosition(node, position) {
         node.position = position;
+
+        let minPosition = 1000;
+        if (node.parentNode != null) {
+            node.parentNode.children.forEach(function(d) {
+                if (minPosition > d.position) {
+                    minPosition = d.position;
+                }
+            });
+            if (minPosition != -1) {
+                node.parentNode.position = minPosition;
+            }
+        }
 
         for (let n of node.children) {
             let maxPosition = -1, newPosition;
@@ -119,7 +118,7 @@ class Tree {
 
         nodes.append("text")
             .attr("class", "label")
-            .text((d)=> {return d.name});
+            .text((d)=> {return d.name.toUpperCase()});
 
         nodes.attr("transform", (d)=>{return "translate("+[(d.level+1)*150, (d.position+1)*100]+")";});
     }

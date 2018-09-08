@@ -8,6 +8,7 @@ class Tree {
      */
     constructor(json) {
         this.nodeList = [];
+        this.spot = 0;
         for (let i of json) {
             let node = new Node(i.name, i.parent);
             this.nodeList.push(node);
@@ -52,41 +53,21 @@ class Tree {
      * Recursive function that assign positions to each node
      */
     assignPosition(node, position) {
+        this.spot = Math.max(this.spot, position);
         node.position = position;
 
-        let minPosition = 1000;
-        if (node.parentNode != null) {
-            node.parentNode.children.forEach(function(d) {
-                if (minPosition > d.position) {
-                    minPosition = d.position;
-                }
-            });
-            if (minPosition != -1) {
-                node.parentNode.position = minPosition;
-            }
+        if (node.children.length > 0) {
+            this.assignPosition(node.children[0], position);
         }
 
-        for (let n of node.children) {
-            let maxPosition = -1, newPosition;
-
-            this.nodeList.forEach(function(d){
-                if (d.level === n.level) {
-                    if (d.position > maxPosition) {
-                        maxPosition = d.position;
-                    }
-                }
-            });
-
-            if (maxPosition === -1) {
-                newPosition = n.parentNode.position;
+        for (let i = 1; i < node.children.length; i++) {
+            if (this.spot > position) {
+                this.assignPosition(node.children[i], this.spot+1);
             } else {
-                newPosition = maxPosition + 1;
+                this.assignPosition(node.children[i], position+1);
             }
-
-            this.assignPosition(n, newPosition);
         }
     }
-
 
     /**
      * Function that renders the tree
@@ -106,7 +87,6 @@ class Tree {
                  .attr("y1", (d)=> {return (d.position+1)*100})
                  .attr("x2", (d)=> {return d.parentNode ? (d.parentNode.level+1)*150 : (d.level+1)*150;})
                  .attr("y2", (d)=> {return d.parentNode ? (d.parentNode.position+1)*100 : (d.position+1)*100;});
-
 
         let nodes = svg.selectAll("nodeGroup").data(this.nodeList)
         let group = nodes.enter().append("g").classed("nodeGroup", true)

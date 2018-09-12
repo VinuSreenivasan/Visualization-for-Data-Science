@@ -44,8 +44,58 @@ function update(data) {
     // ****** TODO: PART III (you will also edit in PART V) ******
 
     // TODO: Select and update the 'a' bar chart bars
+    let aBarChart = d3.select("#aBarChart");
+    let aBar = aBarChart.selectAll("rect").data(data);
+    let newaBar = aBar.enter().append("rect")
+            .attr("x", 0)
+            .attr("y", (d, i) => { return iScale(i+1); })
+            .attr("width", (d) => { return aScale(d.a); })
+            .attr("height", 10)
+            .attr("opacity", 0);
+
+    aBar.exit()
+        .style("opacity", 1)
+        .transition()
+        .duration(2000)
+        .style("opacity", 0)
+        .remove();
+
+    aBar = newaBar.merge(aBar);
+
+    aBar.transition()
+        .duration(2000)
+        .attr("x", 0)
+        .attr("y", (d, i) => { return iScale(i+1); })
+        .attr("width", (d, i) => { return aScale(d.a); })
+        .attr("height", 10)
+        .style("opacity", 1);
 
     // TODO: Select and update the 'b' bar chart bars
+    let bBarChart = d3.select("#bBarChart");
+    let bBar = bBarChart.selectAll("rect").data(data);
+    let newbBar = bBar.enter().append("rect")
+        .attr("x", 0)
+        .attr("y", (d, i) => { return iScale(i+1); })
+        .attr("width", (d, i) => { return bScale(d.b); })
+        .attr("height", 10)
+        .attr("opacity", 0);
+
+    bBar.exit()
+        .style("opacity", 1)
+        .transition()
+        .duration(2000)
+        .style("opacity", 0)
+        .remove();
+
+    bBar = newbBar.merge(bBar);
+
+    bBar.transition()
+        .duration(2000)
+        .attr("x", 0)
+        .attr("y", (d, i) => { return iScale(i+1); })
+        .attr("width", (d, i) => { return bScale(d.b); })
+        .attr("height", 10)
+        .style("opacity", 1);
 
     // TODO: Select and update the 'a' line chart path using this line generator
 
@@ -53,7 +103,30 @@ function update(data) {
         .x((d, i) => iScale(i))
         .y((d) => aScale(d.a));
 
+    console.log(data);
+    let aLine = d3.select("#aLineChart").data(data)
+        .transition()
+        .duration(1000)
+        .style("opacity", 0.3)
+        .transition()
+        .duration(1000)
+        .style("opacity", 1)
+        .attr("d", aLineGenerator(data));
+
     // TODO: Select and update the 'b' line chart path (create your own generator)
+
+    let bLineGenerator = d3.line()
+        .x((d, i) => iScale(i))
+        .y((d) => bScale(d.b));
+
+    let bLine = d3.select("#bLineChart").data(data)
+        .transition()
+        .duration(1000)
+        .style("opacity", 0.3)
+        .transition()
+        .duration(1000)
+        .style("opacity", 1)
+        .attr("d", bLineGenerator(data));
 
     // TODO: Select and update the 'a' area chart path using this area generator
     let aAreaGenerator = d3.area()
@@ -61,9 +134,47 @@ function update(data) {
         .y0(0)
         .y1(d => aScale(d.a));
 
+    let aArea = d3.select("#aAreaChart").data(data)
+        .transition()
+        .duration(2000)
+        .style("opacity", 1)
+        .attr("d", aAreaGenerator(data));
+
     // TODO: Select and update the 'b' area chart path (create your own generator)
+    let bAreaGenerator = d3.area()
+        .x((d, i) => iScale(i))
+        .y0(0)
+        .y1(d => bScale(d.b));
+
+    let bArea = d3.select("#bAreaChart").data(data)
+        .transition()
+        .duration(2000)
+        .style("opacity", 1)
+        .attr("d", bAreaGenerator(data));
 
     // TODO: Select and update the scatterplot points
+    let scatterplot = d3.select("#scatterplot");
+    let circles = scatterplot.selectAll("circle").data(data);
+    let newCircles = circles.enter().append("circle")
+        .attr("cx", (d, i) => { return aScale(d.a+10); })
+        .attr("cy", (d, i) => { return bScale(d.b+10); })
+        .attr("r", 5);
+
+    circles.exit()
+        .style("opacity", 1)
+        .transition()
+        .duration(2000)
+        .style("opacity", 0)
+        .remove();
+
+    circles = newCircles.merge(circles);
+
+    circles.transition()
+        .duration(2000)
+        .attr("cx", (d, i) => { return aScale(d.a); })
+        .attr("cy", (d, i) => { return bScale(d.b); })
+        .attr("r", 5)
+        .style("opacity", 1);
 
     // ****** TODO: PART IV ******
 

@@ -6,8 +6,23 @@
 function staircase() {
     // ****** TODO: PART II ******
     let aBarChart = document.getElementById("aBarChart");
-    let count = aBarChart.children;
-    console.log(count);
+    let barHeight = new Array();
+
+    let i = 0;
+    for (let child of aBarChart.children) {
+        barHeight[i] = child.attributes.width.value;
+        i++;
+    }
+
+    barHeight.sort(function(a, b) {
+        return parseInt(a) - parseInt(b);
+    });
+
+    i = 0;
+    for (let child of aBarChart.children) {
+        child.attributes.width.value = barHeight[i];
+        i++;
+    }
 }
 
 /**

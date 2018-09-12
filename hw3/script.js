@@ -5,6 +5,9 @@
  */
 function staircase() {
     // ****** TODO: PART II ******
+    let aBarChart = document.getElementById("aBarChart");
+    let count = aBarChart.children;
+    console.log(count);
 }
 
 /**
@@ -47,11 +50,11 @@ function update(data) {
     let aBarChart = d3.select("#aBarChart");
     let aBar = aBarChart.selectAll("rect").data(data);
     let newaBar = aBar.enter().append("rect")
-            .attr("x", 0)
-            .attr("y", (d, i) => { return iScale(i+1); })
-            .attr("width", (d) => { return aScale(d.a); })
-            .attr("height", 10)
-            .attr("opacity", 0);
+        .attr("x", 0)
+        .attr("y", (d, i) => { return iScale(i+1); })
+        .attr("width", (d) => { return aScale(d.a); })
+        .attr("height", 10)
+        .style("opacity", 0);
 
     aBar.exit()
         .style("opacity", 1)
@@ -78,7 +81,7 @@ function update(data) {
         .attr("y", (d, i) => { return iScale(i+1); })
         .attr("width", (d, i) => { return bScale(d.b); })
         .attr("height", 10)
-        .attr("opacity", 0);
+        .style("opacity", 0);
 
     bBar.exit()
         .style("opacity", 1)
@@ -98,33 +101,24 @@ function update(data) {
         .style("opacity", 1);
 
     // TODO: Select and update the 'a' line chart path using this line generator
-
     let aLineGenerator = d3.line()
         .x((d, i) => iScale(i))
         .y((d) => aScale(d.a));
 
-    console.log(data);
     let aLine = d3.select("#aLineChart").data(data)
         .transition()
-        .duration(1000)
-        .style("opacity", 0.3)
-        .transition()
-        .duration(1000)
+        .duration(2000)
         .style("opacity", 1)
         .attr("d", aLineGenerator(data));
 
     // TODO: Select and update the 'b' line chart path (create your own generator)
-
     let bLineGenerator = d3.line()
         .x((d, i) => iScale(i))
         .y((d) => bScale(d.b));
 
     let bLine = d3.select("#bLineChart").data(data)
         .transition()
-        .duration(1000)
-        .style("opacity", 0.3)
-        .transition()
-        .duration(1000)
+        .duration(2000)
         .style("opacity", 1)
         .attr("d", bLineGenerator(data));
 

@@ -67,7 +67,7 @@ function update(data) {
     let newaBar = aBar.enter().append("rect")
         .attr("x", 0)
         .attr("y", (d, i) => { return iScale(i+1); })
-        .attr("width", (d) => { return aScale(d.a); })
+        .attr("width", 0)
         .attr("height", 10)
         .style("opacity", 0);
 
@@ -84,7 +84,7 @@ function update(data) {
         .duration(2000)
         .attr("x", 0)
         .attr("y", (d, i) => { return iScale(i+1); })
-        .attr("width", (d, i) => { return aScale(d.a); })
+        .attr("width", (d) => { return aScale(d.a); })
         .attr("height", 10)
         .style("opacity", 1);
 
@@ -94,7 +94,7 @@ function update(data) {
     let newbBar = bBar.enter().append("rect")
         .attr("x", 0)
         .attr("y", (d, i) => { return iScale(i+1); })
-        .attr("width", (d, i) => { return bScale(d.b); })
+        .attr("width", 0)
         .attr("height", 10)
         .style("opacity", 0);
 
@@ -111,7 +111,7 @@ function update(data) {
         .duration(2000)
         .attr("x", 0)
         .attr("y", (d, i) => { return iScale(i+1); })
-        .attr("width", (d, i) => { return bScale(d.b); })
+        .attr("width", (d) => { return bScale(d.b); })
         .attr("height", 10)
         .style("opacity", 1);
 
@@ -121,6 +121,7 @@ function update(data) {
         .y((d) => aScale(d.a));
 
     let aLine = d3.select("#aLineChart").data(data)
+        .style("opacity", 0)
         .transition()
         .duration(2000)
         .style("opacity", 1)
@@ -132,6 +133,7 @@ function update(data) {
         .y((d) => bScale(d.b));
 
     let bLine = d3.select("#bLineChart").data(data)
+        .style("opacity", 0)
         .transition()
         .duration(2000)
         .style("opacity", 1)
@@ -144,6 +146,7 @@ function update(data) {
         .y1(d => aScale(d.a));
 
     let aArea = d3.select("#aAreaChart").data(data)
+        .style("opacity", 0)
         .transition()
         .duration(2000)
         .style("opacity", 1)
@@ -156,6 +159,7 @@ function update(data) {
         .y1(d => bScale(d.b));
 
     let bArea = d3.select("#bAreaChart").data(data)
+        .style("opacity", 0)
         .transition()
         .duration(2000)
         .style("opacity", 1)
@@ -165,8 +169,8 @@ function update(data) {
     let scatterplot = d3.select("#scatterplot");
     let circles = scatterplot.selectAll("circle").data(data);
     let newCircles = circles.enter().append("circle")
-        .attr("cx", (d, i) => { return aScale(d.a+10); })
-        .attr("cy", (d, i) => { return bScale(d.b+10); })
+        .attr("cx", (d) => { return aScale(d.a+10); })
+        .attr("cy", (d) => { return bScale(d.b+10); })
         .attr("r", 5);
 
     circles.exit()
@@ -180,8 +184,8 @@ function update(data) {
 
     circles.transition()
         .duration(2000)
-        .attr("cx", (d, i) => { return aScale(d.a); })
-        .attr("cy", (d, i) => { return bScale(d.b); })
+        .attr("cx", (d) => { return aScale(d.a); })
+        .attr("cy", (d) => { return bScale(d.b); })
         .attr("r", 5)
         .style("opacity", 1);
 

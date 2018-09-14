@@ -6,21 +6,21 @@
 function staircase() {
     // ****** TODO: PART II ******
     let aBarChart = document.getElementById("aBarChart");
-    let barHeight = new Array();
+    let barWidth = new Array();
 
     let i = 0;
     for (let child of aBarChart.children) {
-        barHeight[i] = child.attributes.width.value;
+        barWidth[i] = child.attributes.width.value;
         i++;
     }
 
-    barHeight.sort(function(a, b) {
+    barWidth.sort(function(a, b) {
         return parseInt(a) - parseInt(b);
     });
 
     i = 0;
     for (let child of aBarChart.children) {
-        child.attributes.width.value = barHeight[i];
+        child.attributes.width.value = barWidth[i];
         i++;
     }
 }
@@ -66,7 +66,7 @@ function update(data) {
     let aBar = aBarChart.selectAll("rect").data(data);
     let newaBar = aBar.enter().append("rect")
         .attr("x", 0)
-        .attr("y", (d, i) => { return iScale(i+1); })
+        .attr("y", (d, i) => { return iScale(i); })
         .attr("width", 0)
         .attr("height", 10)
         .style("opacity", 0);
@@ -83,7 +83,7 @@ function update(data) {
     aBar.transition()
         .duration(2000)
         .attr("x", 0)
-        .attr("y", (d, i) => { return iScale(i+1); })
+        .attr("y", (d, i) => { return iScale(i); })
         .attr("width", (d) => { return aScale(d.a); })
         .attr("height", 10)
         .style("opacity", 1);
@@ -93,7 +93,7 @@ function update(data) {
     let bBar = bBarChart.selectAll("rect").data(data);
     let newbBar = bBar.enter().append("rect")
         .attr("x", 0)
-        .attr("y", (d, i) => { return iScale(i+1); })
+        .attr("y", (d, i) => { return iScale(i); })
         .attr("width", 0)
         .attr("height", 10)
         .style("opacity", 0);
@@ -110,7 +110,7 @@ function update(data) {
     bBar.transition()
         .duration(2000)
         .attr("x", 0)
-        .attr("y", (d, i) => { return iScale(i+1); })
+        .attr("y", (d, i) => { return iScale(i); })
         .attr("width", (d) => { return bScale(d.b); })
         .attr("height", 10)
         .style("opacity", 1);
@@ -169,8 +169,8 @@ function update(data) {
     let scatterplot = d3.select("#scatterplot");
     let circles = scatterplot.selectAll("circle").data(data);
     let newCircles = circles.enter().append("circle")
-        .attr("cx", (d) => { return aScale(d.a+10); })
-        .attr("cy", (d) => { return bScale(d.b+10); })
+        .attr("cx", (d) => { return aScale(d.a); })
+        .attr("cy", (d) => { return bScale(d.b); })
         .attr("r", 5);
 
     circles.exit()

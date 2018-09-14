@@ -190,7 +190,54 @@ function update(data) {
         .style("opacity", 1);
 
     // ****** TODO: PART IV ******
+    document.getElementById("aBarChart").addEventListener("mouseover", function(event) {
+        event.target.style.fill = "green";});
 
+    document.getElementById("aBarChart").addEventListener("mouseout", function(event) {
+        event.target.style.fill = "#694882";});
+
+    /*document.getElementById("aBarChart").querySelectorAll("rect").forEach(function(d){
+        d.addEventListener("mouseover", function(event) {
+            event.target.style.fill = "green"; })
+        d.addEventListener("mouseout", function(event) {
+            event.target.style.fill = "#694882"; })
+    });*/
+
+    document.getElementById("bBarChart").addEventListener("mouseover", function(event) {
+        event.target.style.fill = "green";})
+
+    document.getElementById("bBarChart").addEventListener("mouseout", function(event) {
+        event.target.style.fill = "#694882";})
+
+    /*document.getElementById("bBarChart").querySelectorAll("rect").forEach(function(d){
+        d.addEventListener("mouseover", function(event) {
+            event.target.style.fill = "green"; })
+        d.addEventListener("mouseout", function(event) {
+            event.target.style.fill = "#694882"; })
+    });*/
+
+    circles.on("click", function(d) {
+        let coordinates = d3.mouse(this);
+        console.log("Data points: ("+d.a+", "+d.b+") Coordinates: ("+coordinates[0]+", "+coordinates[1]+")");
+    });
+
+    circles.on("mouseover", function(d) {
+        circles.append("title").text(function(d) {
+            return [d.a, d.b]; });
+    });
+
+    circles.on("mouseout", function(d) {
+        circles.select("title").remove();
+    });
+
+    /*circles.on("mouseover", function(d){
+        d3.select(this).append("title").text(function(d) {
+            return [d.a, d.b]; });
+    });
+
+    circles.on("mouseout", function(d) {
+        d3.select(this).select("title").remove();
+    });*/
 }
 
 /**

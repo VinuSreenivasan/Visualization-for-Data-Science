@@ -122,12 +122,9 @@ There are four parts to the scatterplot view: the actual plot, the drop-down men
 
 ### 2.1 The Main Plot
 
-The scatterplot shows the relationship between two chosen dimensions. We want to be able to select the datasets for the x and y axis in the drop-down menus. The plot is drawn by calling `drawPlot()` function which takes four parameters: the year, x data, y data, and circle data. We have provided a class `PlotData` (a helper class in `gap_plot.js`) that will be your data structure for the data passed to `drawPlot()`. 
-
-The scatterplot shows the relationship between two chosen dimensions. You will be able to select the datasets for the x and y axis in the drop-down menus. The plot is drawn by calling `drawPlot()` which will create the initial plot structure. We will update the plot with the data with the `updatePlot()` function which takes four parameters: the year, x data, y data, and circle data. We have provided a class `PlotData` that will be your data structure for the data passed to `updatePlot()`
+The scatterplot shows the relationship between two chosen dimensions. You will be able to select the datasets for the x and y axis in the drop-down menus. The plot is drawn by calling `drawPlot()` which will create the initial plot structure. You do not need to pass any paramters in the `drawPlot()` function. We will update the plot with the data using `updatePlot()` function which takes four parameters: the year, x data key, y data key, and circle data key. We have provided a class `PlotData` (a helper class in `gap_plot.js`) that will be your data structure for the data passed to `updatePlot()`. You will choose the x, y and circle data by their corresponding key in the data object.
 
 You will have data that will size the circles called circleSizeIndicator. We have provided a `circleSizer` function for you. You will use this when defining your 'r' attribute for your circles. It takes the circle data as a parameter.
-
 
 ![Gap Plot](figs/gapplot.PNG)
 

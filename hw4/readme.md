@@ -62,7 +62,7 @@ You can view the page at [http://localhost:8080](http://localhost:8080). Before 
 
 ## The Data
 
-Your map will use GeoJSON data that is contained in the `world.json` file. The data is split into several csv files, one each for **child mortality**, **GDP per capita**, **life expectancy**, **fertility rate**, and **population** for countries. Each files contains data for every year from 1880 to 2020; take a look at the files to understand the structure. We are using data from the [GapMinder data repository](https://www.gapminder.org/data/). We provided the data loading for you, but you will have to pass the data to the corresponding view objects in `script.js`. 
+Your map will use topoJSON data that is contained in the `world.json` file. The data is split into several csv files, one each for **child mortality**, **GDP per capita**, **life expectancy**, **fertility rate**, and **population** for countries. Each files contains data for every year from 1880 to 2020; take a look at the files to understand the structure. We are using data from the [GapMinder data repository](https://www.gapminder.org/data/). We provided the data loading for you, but you will have to pass the data to the corresponding view objects in `script.js`. 
 
 Here is a sample of the population data: 
 
@@ -122,14 +122,19 @@ There are four parts to the scatterplot view: the actual plot, the drop-down men
 
 ### 2.1 The Main Plot
 
-The scatterplot shows the relationship between two chosen dimensions. You will be able to select the datasets for the x and y axis in the drop-down menus. The plot is drawn by calling `drawPlot()` which will create the initial plot structure. You do not need to pass any paramters in the `drawPlot()` function. We will update the plot with the data using `updatePlot()` function which takes four parameters: the year, x data key, y data key, and circle data key. We have provided a class `PlotData` (a helper class in `gap_plot.js`) that will be your data structure for the data passed to `updatePlot()`. You will choose the x, y and circle data by their corresponding key in the data object.
+The scatterplot shows the relationship between two chosen dimensions. You will be able to select the datasets for the x and y axis in the drop-down menus. The plot is drawn by calling `drawPlot()` which will create the initial plot structure. You do not need to pass any paramters in the `drawPlot()` function. 
+We will update the plot with the data using `updatePlot()` function which takes four parameters: the year, x data key, y data key, and circle data key. We have provided a class `PlotData` (a helper class in `gap_plot.js`) that will be your data structure for the data passed to `updatePlot()`. You will choose the x, y and circle data by their corresponding key in the data object.
 
-You will have data that will size the circles called circleSizeIndicator. We have provided a `circleSizer` function for you. You will use this when defining your 'r' attribute for your circles. It takes the circle data as a parameter.
+You will be calling `updatePlot()` in script.js with the x, y, and circle size indicators of your choice. The activeYear will be needed as well. The default for active year is set to `2000`. This needs to happen in `script.js` for your plot to show up on page load!
+
+You will have data that will size the circles called circleSizeIndicator. We have provided a `circleSizer` function for you. You will use this when defining your 'r' attribute for your circles. It takes the circle data as a parameter. Note `circleSizer()` uses min and max values for the circle size data. You will need to declare min and max for the circle size variables in `updatePlot()`.
+
+At the end of `updatePlot()` you will need to call the `drawDropDown()` and `drawLegend()` functions. See details below.
 
 ![Gap Plot](figs/gapplot.PNG)
 
 ### 2.2 The Drop-down Menus
-There are three drop down menus: the x and y data menus, and the circle data menu. Changing the menus redraws the plot from the currently selected data.The drop-drown structure is provided for you, but you will set up the `drawPlot()` function to be called when a new data set is selected. All three drop down menus will have all of the data categories (Child mortality, GDP per capita, Life expectancy, Fertility rate, and Population) to select from.
+There are three drop down menus: the x and y data menus, and the circle data menu. Changing the menus redraws the plot from the currently selected data.The drop-drown structure is provided for you, but you will set up the `drawDropDown()` function to be called when a new data set is selected. (A god spot for this is at the bottom of the `updatePlot()` function. All three drop down menus will have all of the data categories (Child mortality, GDP per capita, Life expectancy, Fertility rate, and Population) to select from. We have set up `drawDropDown()` for you, but you will need to pass the x, y and circle size indicators that are passed to `updatePlot()` to it. 
 
 This gif shows the desired behavior:
 

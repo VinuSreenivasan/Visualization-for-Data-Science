@@ -50,7 +50,7 @@ class GapPlot {
 
         this.data = data;
 
-        //TODO - Your code goes here - 
+        //YOUR CODE HERE  
 
 
         // ******* TODO: PART 3 *******
@@ -60,8 +60,8 @@ class GapPlot {
          * assign the dragUpdate function as a variable that will be accessible to you in updatePlot()
          */
 
+        //YOUR CODE HERE  
 
-        //TODO - Your code goes here - 
 
     }
 
@@ -79,9 +79,6 @@ class GapPlot {
          Main things you should set up here:
          1). Create the x and y axes
          2). Create the activeYear background text
-
-
-        //TODO - Your code goes here - 
 
 
          The dropdown menus have been created for you!
@@ -106,6 +103,7 @@ class GapPlot {
 
         let svgGroup = d3.select('#chart-view').select('.plot-svg').append('g').classed('wrapper-group', true);
 
+        //YOUR CODE HERE  
 
         /* This is the setup for the dropdown menu- no need to change this */
 
@@ -189,8 +187,6 @@ class GapPlot {
         
         */
 
-        //TODO - Your code goes here - 
-
         /**
          *  Function to determine the circle radius by circle size
          *  This is the function to size your circles, you don't need to do anything to this
@@ -203,17 +199,19 @@ class GapPlot {
             let cScale = d3.scaleSqrt().range([3, 20]).domain([minSize, maxSize]);
             return d.circleSize ? cScale(d.circleSize) : 3;
         };
+        ///////////////////////////////////////////////////////////////////
 
+        //YOUR CODE HERE  
 
     }
 
     /**
      * Setting up the drop-downs
-     * @param sizeData data used to size the circles
-     * @param xData data used for x attribute
-     * @param yData data used for y attribute
+     * @param xIndicator identifies the values to use for the x axis
+     * @param yIndicator identifies the values to use for the y axis
+     * @param circleSizeIndicator identifies the values to use for the circle size
      */
-    drawDropDown(sizeData, xData, yData) {
+    drawDropDown(xIndicator, yIndicator, circleSizeIndicator) {
 
         let that = this;
         let dropDownWrapper = d3.select('.dropdown-wrapper');
@@ -221,7 +219,7 @@ class GapPlot {
 
         for (let key in this.data) {
             dropData.push({
-                indicator: this.data[key][0].indicator,
+                indicator: key,
                 indicator_name: this.data[key][0].indicator_name
             });
         }
@@ -244,7 +242,7 @@ class GapPlot {
 
         optionsC = optionsCEnter.merge(optionsC);
 
-        let selectedC = optionsC.filter(d => d.indicator === sizeData[0].indicator)
+        let selectedC = optionsC.filter(d => d.indicator === circleSizeIndicator)
             .attr('selected', true);
 
         dropC.on('change', function(d, i) {
@@ -271,7 +269,7 @@ class GapPlot {
 
         optionsX = optionsXEnter.merge(optionsX);
 
-        let selectedX = optionsX.filter(d => d.indicator === xData[0].indicator)
+        let selectedX = optionsX.filter(d => d.indicator === xIndicator)
             .attr('selected', true);
 
         dropX.on('change', function(d, i) {
@@ -298,7 +296,7 @@ class GapPlot {
         optionsYEnter.append('text')
             .text((d, i) => d.indicator_name);
 
-        let selectedY = optionsY.filter(d => d.indicator === yData[0].indicator)
+        let selectedY = optionsY.filter(d => d.indicator === yIndicator)
             .attr('selected', true);
 
         dropY.on('change', function(d, i) {
@@ -327,8 +325,6 @@ class GapPlot {
         */
         let that = this;
 
-        //TODO - Your code goes here - 
-
         //Slider to change the activeYear of the data
         let yearScale = d3.scaleLinear().domain([1800, 2020]).range([30, 730]);
 
@@ -350,8 +346,7 @@ class GapPlot {
         sliderText.attr('y', 25);
 
         yearSlider.on('input', function() {
-
-
+            //YOUR CODE HERE  
         });
     }
 
@@ -404,9 +399,7 @@ class GapPlot {
         // You will not be calling this directly in the gapPlot class,
         // you will need to call it from the updateHighlight function in script.js
         */
-
-        //TODO - Your code goes here - 
-
+        //YOUR CODE HERE  
     }
 
     /**
@@ -421,7 +414,7 @@ class GapPlot {
         // the colors and markers for hosts/teams/winners, you can use
         // d3 selection and .classed to set these classes off here.
 
-        //TODO - Your code goes here - 
+        //YOUR CODE HERE  
     }
 
     /**

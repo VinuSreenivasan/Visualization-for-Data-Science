@@ -41,12 +41,14 @@ class Map {
 
     /**
      * Renders the map
-     * @param world the json data with the shape of all countries and a string for the activeYear
+     * @param world the topojson data with the shape of all countries and a string for the activeYear
      */
     drawMap(world) {
         //note that projection is global!
 
         // ******* TODO: PART I *******
+
+        //world is a topojson file. you will have to convert this to geojson (hint: you should have learned this in class!)
 
         // Draw the background (country outlines; hint: use #map-chart)
         // Make sure to add a graticule (gridlines) and an outline to the map
@@ -61,6 +63,8 @@ class Map {
         // We have provided a class structure for the data called CountryData that you should assign the paramters to in your mapping
 
         //TODO - Your code goes here - 
+
+
 
 
     }

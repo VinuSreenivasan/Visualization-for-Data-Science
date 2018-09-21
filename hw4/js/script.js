@@ -48,7 +48,7 @@ loadData().then(data => {
 
         // You need to pass the world topo data to the drawMap() function as a parameter
 
-        //YOUR CODE HERE
+        worldMap.drawMap(mapData);
 
     });
 

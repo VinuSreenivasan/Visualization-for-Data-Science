@@ -65,6 +65,28 @@ class Map {
         //TODO - Your code goes here - 
 
 
+        let geojson = topojson.feature(world, world.objects.countries);
+        // console.log(geojson.features);
+        // console.log(this.populationData);
+        //console.log(this.nameArray);
+        let countryData = geojson.features.map(country => {
+
+            let index = this.nameArray.indexOf(country.id);
+            let region = 'countries';
+
+            if (index > -1) {
+                //  console.log(this.populationData[index].geo, country.id);
+                region = this.populationData[index].region;
+                return new CountryData(country.type, country.id, country.properties, country.geometry, region);
+            } else {
+                console.log('not found');
+
+            }
+
+        });
+
+        console.log(countryData);
+
 
 
     }

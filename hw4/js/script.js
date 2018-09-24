@@ -52,6 +52,8 @@ loadData().then(data => {
 
     });
 
+    //gapPlot.updatePlot(2000, 'fertility-rate', 'gdp', 'population');
+
     // This clears a selection by listening for a click
     document.addEventListener("click", function(e) {
         e.stopPropagation();

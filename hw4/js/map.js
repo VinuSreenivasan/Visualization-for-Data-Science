@@ -62,8 +62,9 @@ class Map {
         // You need to match the country with the region. This can be done using .map()
         // We have provided a class structure for the data called CountryData that you should assign the paramters to in your mapping
 
-        //TODO - Your code goes here - 
+        //TODO - Your code goes here -
 
+        let path = d3.geoPath().projection(this.projection);
 
         let geojson = topojson.feature(world, world.objects.countries);
         // console.log(geojson.features);
@@ -79,15 +80,35 @@ class Map {
                 region = this.populationData[index].region;
                 return new CountryData(country.type, country.id, country.properties, country.geometry, region);
             } else {
-                console.log('not found');
-
+                return new CountryData(country.type, country.id, country.properties, country.geometry, null);
             }
 
         });
 
-        console.log(countryData);
+        //console.log(countryData);
 
+        let svg = d3.select("#map-chart").append("svg");
 
+        svg.attr("class", "countries boundary")
+            .selectAll("path")
+            .data(countryData)
+            .enter().append("path")
+            .attr("d", path)
+            .attr("class", d => d.region)
+            .attr("id", d => d.id)
+            .on("click", d => this.updateHighlightClick(d));
+
+        svg.append("path")
+            .datum({type: "Sphere"})
+            .attr("id", "sphere")
+            .attr("d", path)
+            .attr("class", "stroke");
+
+        let graticule = d3.geoGraticule();
+        svg.append("path")
+            .datum(graticule)
+            .attr("class", "graticule")
+            .attr("d", path);
 
     }
 
@@ -103,7 +124,9 @@ class Map {
         // d3 selection and .classed to set these classes on here.
         //
 
-        //TODO - Your code goes here - 
+        //TODO - Your code goes here -
+        this.clearHighlight();
+        d3.select("#"+activeCountry.id).classed("selected-country", true);
 
     }
 
@@ -119,7 +142,8 @@ class Map {
         // the colors and markers for hosts/teams/winners, you can use
         // d3 selection and .classed to set these classes off here.
 
-        //TODO - Your code goes here - 
+        //TODO - Your code goes here -
+        d3.selectAll(".selected-country").classed("selected-country", false);
 
 
     }

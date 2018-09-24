@@ -19,24 +19,6 @@ class PlotData {
     }
 }
 
-class DataBounds {
-    constructor(args) {
-        this.bounds = {'population': {'min': args['population'], 'max': args['population']},
-            'gdp': {'min': args['gdp'], 'max': args['gdp']},
-            'life-expectancy' : {'min': args['life-expectancy'], 'max': args['life-expectancy']},
-            'fertility-rate' : {'min': args['fertility-rate'], 'max': args['fertility-rate']},
-            'child-mortality' : {'min': args['child-mortality'], 'max': args['child-mortality']}
-        }
-    }
-
-    insert(args) {
-        for (let key of Object.keys(this.bounds)) {
-            this.bounds[key].min = Math.min(this.bounds[key].min, args[key]);
-            this.bounds[key].max = Math.max(this.bounds[key].max, args[key]);
-        }
-    }
-}
-
 class CountryToPlotData {
     constructor(id, country, region, pop, gdp, cmu, life, tfr) {
         this['id'] = id;
@@ -47,6 +29,23 @@ class CountryToPlotData {
         this['child-mortality'] = cmu;
         this['life-expectancy'] = life;
         this['fertility-rate'] = tfr;
+    }
+}
+
+class PlotDataBoundary {
+    constructor(data) {
+        this.boundary = {'population': {'min': data['population'], 'max': data['population']},
+            'gdp': {'min': data['gdp'], 'max': data['gdp']},
+            'life-expectancy' : {'min': data['life-expectancy'], 'max': data['life-expectancy']},
+            'fertility-rate' : {'min': data['fertility-rate'], 'max': data['fertility-rate']},
+            'child-mortality' : {'min': data['child-mortality'], 'max': data['child-mortality']}
+        }
+    }
+    insert(data) {
+        for (let key of Object.keys(this.boundary)) {
+            this.boundary[key].min = Math.min(this.boundary[key].min, data[key]);
+            this.boundary[key].max = Math.max(this.boundary[key].max, data[key]);
+        }
     }
 }
 
@@ -78,12 +77,10 @@ class GapPlot {
         this.width = 810 - this.margin.left - this.margin.right;
         this.height = 500 - this.margin.top - this.margin.bottom;
         this.activeYear = activeYear;
-
         this.data = data;
 
         //YOUR CODE HERE
         function mapPlotData(data) {
-            let dataBounds = undefined;
             function getValueForYear(value, year, id) {
                 let retVal = data[value].find(d => d.geo === id);
                 if (retVal) {
@@ -92,7 +89,6 @@ class GapPlot {
                     return 0;
                 }
             }
-
             function getRegion(id) {
                 let retVal = data['population'].find(d => d.geo === id);
                 if (retVal) {
@@ -101,10 +97,9 @@ class GapPlot {
                     return 'unknown';
                 }
             }
-
+            let plotDataBoundary = undefined;
             let idCountryGroup = data.gdp.map(d => [d.geo, d.country]);
             let dataPerYear = new Object();
-
             for (let year = 1800; year <= 2020; year++) {
                 dataPerYear[year] = new Array();
                 for (let idCountry of idCountryGroup) {
@@ -116,23 +111,24 @@ class GapPlot {
                     let childPerYear = getValueForYear('child-mortality', year, id);
                     let lifePerYear = getValueForYear('life-expectancy', year, id);
                     let fertilityPerYear = getValueForYear('fertility-rate', year, id);
-                    let countryToPlotData = new CountryToPlotData(id, country, region, populationPerYear, gdpPerYear, childPerYear, lifePerYear, fertilityPerYear);
+                    let countryToPlotData = new CountryToPlotData(id, country, region, populationPerYear, gdpPerYear,
+                        childPerYear, lifePerYear, fertilityPerYear);
                     dataPerYear[year].push(countryToPlotData);
-                    let boundsArg = {'population': populationPerYear, 'gdp': gdpPerYear, 'life-expectancy': lifePerYear, 'child-mortality': childPerYear, 'fertility-rate': fertilityPerYear};
-
-                    if (! dataBounds) {
-                        dataBounds = new DataBounds(boundsArg);
+                    let boundaryVal = {'population': populationPerYear, 'gdp': gdpPerYear, 'life-expectancy': lifePerYear,
+                        'child-mortality': childPerYear, 'fertility-rate': fertilityPerYear};
+                    if (plotDataBoundary === undefined) {
+                        plotDataBoundary = new PlotDataBoundary(boundaryVal);
                     } else {
-                        dataBounds.insert(boundsArg);
+                        plotDataBoundary.insert(boundaryVal);
                     }
                 }
             }
-            return [dataPerYear, dataBounds];
+            return [dataPerYear, plotDataBoundary];
         }
 
         let retVal = mapPlotData(data);
         this.newData = retVal[0];
-        this.dataBounds = retVal[1];
+        this.plotDataBoundary = retVal[1];
         this.drawPlot();
 
         // ******* TODO: PART 3 *******
@@ -190,7 +186,7 @@ class GapPlot {
         this.textForActiveYear =  this.svgGroup.append('text')
             .attr('x', this.margin.left + 50)
             .attr('y', this.margin.top + 50)
-            .html('2000')
+            .html(this.activeYear)
             .classed('activeYear-background', true);
 
         //x-axis
@@ -265,7 +261,7 @@ class GapPlot {
 
         this.drawYearBar();
         this.drawDropDown('fertility-rate', 'gdp', 'population');
-        this.updatePlot(2000, 'fertility-rate', 'gdp', 'population');
+        this.updatePlot(this.activeYear, 'fertility-rate', 'gdp', 'population');
     }
 
     /**
@@ -318,29 +314,28 @@ class GapPlot {
          * @returns {number} the radius
          */
 
-        let minSize = this.dataBounds.bounds[circleSizeIndicator].min;
-        let maxSize = this.dataBounds.bounds[circleSizeIndicator].max;
+        let minSize = this.plotDataBoundary.boundary[circleSizeIndicator].min;
+        let maxSize = this.plotDataBoundary.boundary[circleSizeIndicator].max;
 
         let circleSizer = function(d) {
             let cScale = d3.scaleSqrt().range([3, 20]).domain([minSize, maxSize]);
             return d.circleSize ? cScale(d.circleSize) : 3;
         };
 
-        let xScaleMin = this.dataBounds.bounds[xIndicator].min;
-        let xScaleMax = this.dataBounds.bounds[xIndicator].max;
+        let xScaleMin = this.plotDataBoundary.boundary[xIndicator].min;
+        let xScaleMax = this.plotDataBoundary.boundary[xIndicator].max;
         this.xScale.domain([xScaleMin, xScaleMax]);
 
-        let yScaleMin = this.dataBounds.bounds[yIndicator].min;
-        let yScaleMax = this.dataBounds.bounds[yIndicator].max;
+        let yScaleMin = this.plotDataBoundary.boundary[yIndicator].min;
+        let yScaleMax = this.plotDataBoundary.boundary[yIndicator].max;
         this.yScale.domain([yScaleMin, yScaleMax]);
         ///////////////////////////////////////////////////////////////////
 
         //YOUR CODE HERE
-
-
         this.textForActiveYear.html(activeYear);
         this.drawLegend(0, 100);
-        let yearDataPlot = this.newData[activeYear].map(d => new PlotData(d['country'], d[xIndicator], d[yIndicator], d['id'], d['region'], d[circleSizeIndicator]));
+        let yearDataPlot = this.newData[activeYear].map(d => new PlotData(d['country'], d[xIndicator], d[yIndicator],
+            d['id'], d['region'], d[circleSizeIndicator]));
         let circles = this.svgGroup.selectAll('circle')
             .data(yearDataPlot);
 

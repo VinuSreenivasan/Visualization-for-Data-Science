@@ -40,6 +40,7 @@ loadData().then(data => {
 
 
     // Initialize the plots; pick reasonable default values
+    //gapPlot.updatePlot(this.activeYear, 'fertility-rate', 'gdp', 'population');
 
     // here we load the map data
     d3.json('data/world.json').then(mapData => {
@@ -51,8 +52,6 @@ loadData().then(data => {
         worldMap.drawMap(mapData);
 
     });
-
-    //gapPlot.updatePlot(2000, 'fertility-rate', 'gdp', 'population');
 
     // This clears a selection by listening for a click
     document.addEventListener("click", function(e) {

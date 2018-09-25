@@ -77,6 +77,8 @@ class GapPlot {
         this.width = 810 - this.margin.left - this.margin.right;
         this.height = 500 - this.margin.top - this.margin.bottom;
         this.activeYear = activeYear;
+        this.updateCountry = updateCountry;
+        this.updateYear = updateYear;
         this.data = data;
 
         //YOUR CODE HERE

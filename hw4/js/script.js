@@ -30,7 +30,8 @@ loadData().then(data => {
      */
     function updateYear(year) {
 
-        //TODO - Your code goes here - 
+        //TODO - Your code goes here -
+        that.activeYear = year;
 
     }
     // Creates the view objects

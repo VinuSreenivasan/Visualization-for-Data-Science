@@ -491,6 +491,8 @@ class GapPlot {
 
         yearSlider.on('input', function() {
             //YOUR CODE HERE
+            sliderText.text(this.value);
+            sliderText.attr('x', yearScale(this.value));
         });
     }
 

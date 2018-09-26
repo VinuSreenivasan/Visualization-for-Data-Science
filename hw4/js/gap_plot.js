@@ -562,10 +562,12 @@ class GapPlot {
         this.clearHighlight();
         let circles = d3.select('.plot-svg').selectAll('circle');
         let countryNode = circles.filter(d => d.id.toUpperCase() == activeCountry.toUpperCase());
-        let [countryRegion, countryId] = countryNode.node().id.split('.');
-        circles.filter(d => d.region != countryRegion).classed('hidden', true);
-        countryNode.classed('selected-country', true);
-        circles.filter(d => d.region === countryRegion).classed('selected-region', true);
+        if (countryNode.node() != null) {
+            let [countryRegion, countryId] = countryNode.node().id.split('.');
+            circles.filter(d => d.region != countryRegion).classed('hidden', true);
+            countryNode.classed('selected-country', true);
+            circles.filter(d => d.region === countryRegion).classed('selected-region', true);
+        }
     }
 
     /**

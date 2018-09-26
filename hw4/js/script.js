@@ -67,7 +67,6 @@ loadData().then(data => {
     document.addEventListener("click", function(e) {
         e.stopPropagation();
         updateCountry(null, null);
-        //cid = e.target.id.includes('.') ? e.target.id.split('.')[1] : e.target.id;
         if (e.target.id.includes('.')) {
             cid = e.target.id.split('.')[1];
         } else {

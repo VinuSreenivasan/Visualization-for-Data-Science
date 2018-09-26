@@ -12,12 +12,18 @@ loadData().then(data => {
      *
      * @param countryID the ID object for the newly selected country
      */
-    function updateCountry(countryID) {
+    function updateCountry() {
 
-        that.activeCountry = countryID;
+        //that.activeCountry = countryID;
 
-        //TODO - Your code goes here - 
-
+        //TODO - Your code goes here -
+        if (that.activeCountry == null) { //WORK
+            return undefined;
+        }
+        let countryId = that.activeCountry;
+        worldMap.updateHighlightClick(countryId);
+        gapPlot.updateHighlightClick(countryId);
+        infoBox.updateTextDescription(countryId.toLowerCase(), that.activeYear);
     }
 
     // ******* TODO: PART 3 *******
@@ -32,14 +38,17 @@ loadData().then(data => {
 
         //TODO - Your code goes here -
         that.activeYear = year;
-
+        if (that.activeCountry) {
+            infoBox.updateTextDescription(that.activeCountry.toLowerCase(), year);
+        }
     }
+
     // Creates the view objects
     const infoBox = new InfoBox(data);
     const worldMap = new Map(data, updateCountry);
     const gapPlot = new GapPlot(data, updateCountry, updateYear, this.activeYear);
 
-
+    let idGroup = data.gdp.map(d => d.geo);
     // Initialize the plots; pick reasonable default values
     //gapPlot.updatePlot(this.activeYear, 'fertility-rate', 'gdp', 'population');
 
@@ -58,6 +67,21 @@ loadData().then(data => {
     document.addEventListener("click", function(e) {
         e.stopPropagation();
         updateCountry(null, null);
+        //cid = e.target.id.includes('.') ? e.target.id.split('.')[1] : e.target.id;
+        if (e.target.id.includes('.')) {
+            cid = e.target.id.split('.')[1];
+        } else {
+            cid = e.target.id;
+        }
+        if (cid != '' && idGroup.includes(cid.toLowerCase())) {
+            that.activeCountry = cid;
+            updateCountry();
+        } else {
+            that.activeCountry = null;
+            worldMap.clearHighlight();
+            gapPlot.clearHighlight();
+            infoBox.clearHighlight();
+        }
     });
 });
 

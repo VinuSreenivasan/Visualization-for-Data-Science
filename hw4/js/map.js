@@ -63,20 +63,13 @@ class Map {
         // We have provided a class structure for the data called CountryData that you should assign the paramters to in your mapping
 
         //TODO - Your code goes here -
-
-        let path = d3.geoPath().projection(this.projection);
-
         let geojson = topojson.feature(world, world.objects.countries);
-        // console.log(geojson.features);
-        // console.log(this.populationData);
-        //console.log(this.nameArray);
         let countryData = geojson.features.map(country => {
 
             let index = this.nameArray.indexOf(country.id);
             let region = 'countries';
 
             if (index > -1) {
-                //  console.log(this.populationData[index].geo, country.id);
                 region = this.populationData[index].region;
                 return new CountryData(country.type, country.id, country.properties, country.geometry, region);
             } else {
@@ -85,18 +78,17 @@ class Map {
 
         });
 
-        //console.log(countryData);
+        let path = d3.geoPath(this.projection);
+        let svg = d3.select('#map-chart').append('svg');
 
-        let svg = d3.select("#map-chart").append("svg");
-
-        svg.attr("class", "countries boundary")
-            .selectAll("path")
+        svg.selectAll('path')
             .data(countryData)
-            .enter().append("path")
-            .attr("d", path)
-            .attr("class", d => d.region)
-            .attr("id", d => d.id)
-            .on("click", d => this.updateHighlightClick(d));
+            .enter().append('path')
+            .attr('d', path)
+            .attr('class', function (d){ return d.region ? d.region : ""})
+            .classed('boundary', true)
+            .classed('countries', true)
+            .attr('id', d =>  d.id);
 
         svg.append("path")
             .datum({type: "Sphere"})
@@ -126,8 +118,8 @@ class Map {
 
         //TODO - Your code goes here -
         this.clearHighlight();
-        d3.select("#"+activeCountry.id).classed("selected-country", true);
-
+        d3.select('#map-chart svg').select('#' + activeCountry.toUpperCase())
+            .classed('selected-country', true);
     }
 
     /**
@@ -143,8 +135,7 @@ class Map {
         // d3 selection and .classed to set these classes off here.
 
         //TODO - Your code goes here -
-        d3.selectAll(".selected-country").classed("selected-country", false);
-
-
+        d3.select('#map-chart svg').selectAll('.countries')
+            .classed('selected-country', false);
     }
 }

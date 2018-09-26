@@ -22,7 +22,7 @@ class InfoBox {
      * @param data the full data array
      */
     constructor(data) {
-
+        this.data = data;
     }
 
     /**
@@ -42,9 +42,47 @@ class InfoBox {
          *
          */
 
-        //TODO - Your code goes here - 
+        //TODO - Your code goes here -
+        this.clearHighlight();
+        let that = this;
 
+        if (! that.data['population'].find(d => d.geo == activeCountry)) {
+            return undefined;
+        }
 
+        let infoGroup = Object.keys(this.data).map(function (key) {
+            let activeCountryData = that.data[key].find(d => d.geo == activeCountry);
+            let countryRegion = that.data['population'].find(d => d.geo == activeCountry);
+            let indicatorName = activeCountryData.indicator_name;
+            let value = activeCountryData[activeYear];
+            let infoBoxData = new InfoBoxData(activeCountryData.country, countryRegion.region, indicatorName, value);
+            return infoBoxData;
+        });
+
+        let activeRegion = infoGroup[0];
+        let titleGroup = d3.select('#country-detail').selectAll('span#infoTitle')
+            .data([{'country' : activeRegion.country, 'region' : activeRegion.region}]);
+
+        titleGroup.exit().remove();
+
+        let titleGroupEnter = titleGroup.enter().append('div').classed('label', true);
+
+        titleGroup = titleGroupEnter.merge(titleGroup);
+        titleGroup.append('i').attr('class', d => d.region)
+            .classed('fas fa-globe-asia', true);
+        titleGroup.append('span').attr('id', 'infoTitle')
+            .attr('style', 'color:black').text(d => ' ' + d.country);
+
+        let infoText = d3.select('#country-detail').selectAll('div#info').data(infoGroup);
+		
+        infoText.exit().remove();
+        
+		let infoTextEnter = infoText.enter().append('div')
+            .classed('stat', true)
+            .attr('id', 'info');
+        
+		infoText = infoTextEnter.merge(infoText);
+        infoText.append('text').text(d => d.indicator_name + ' : ' + d.value);
     }
 
     /**
@@ -52,7 +90,8 @@ class InfoBox {
      */
     clearHighlight() {
 
-        //TODO - Your code goes here - 
+        //TODO - Your code goes here -
+        d3.select('#country-detail').html('');
     }
 
 }

@@ -11,7 +11,6 @@
         "label": "Quarter Finals",
         "ranking": 2
       },
-      "": 0,
       "TotalGames": 5,
       "games": [
         {
@@ -26,7 +25,6 @@
               "label": "Quarter Finals",
               "ranking": 2
             },
-            "": "",
             "type": "game",
             "Opponent": "Russia"
           }
@@ -43,7 +41,6 @@
               "label": "Round of Sixteen",
               "ranking": 1
             },
-            "": "",
             "type": "game",
             "Opponent": "Russia"
           }
@@ -60,7 +57,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Russia"
           }
@@ -77,7 +73,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Russia"
           }
@@ -94,7 +89,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Russia"
           }
@@ -109,13 +103,12 @@
       "Goals Made": 2,
       "Goals Conceded": 6,
       "Delta Goals": -4,
-      "Wins": 1,
+      "Wins": 0,
       "Losses": 3,
       "Result": {
         "label": "Group",
         "ranking": 0
       },
-      "": 0,
       "TotalGames": 3,
       "games": [
         {
@@ -130,7 +123,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Egypt"
           }
@@ -147,7 +139,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Egypt"
           }
@@ -164,7 +155,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Egypt"
           }
@@ -180,12 +170,11 @@
       "Goals Conceded": 3,
       "Delta Goals": 4,
       "Wins": 4,
-      "Losses": 2,
+      "Losses": 1,
       "Result": {
         "label": "Quarter Finals",
         "ranking": 2
       },
-      "": 0,
       "TotalGames": 5,
       "games": [
         {
@@ -200,7 +189,6 @@
               "label": "Quarter Finals",
               "ranking": 2
             },
-            "": "",
             "type": "game",
             "Opponent": "Uruguay"
           }
@@ -217,7 +205,6 @@
               "label": "Round of Sixteen",
               "ranking": 1
             },
-            "": "",
             "type": "game",
             "Opponent": "Uruguay"
           }
@@ -234,7 +221,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Uruguay"
           }
@@ -251,7 +237,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Uruguay"
           }
@@ -268,7 +253,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Uruguay"
           }
@@ -289,7 +273,6 @@
         "label": "Group",
         "ranking": 0
       },
-      "": 0,
       "TotalGames": 3,
       "games": [
         {
@@ -304,7 +287,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Saudi Arabia"
           }
@@ -321,7 +303,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Saudi Arabia"
           }
@@ -338,7 +319,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Saudi Arabia"
           }
@@ -353,13 +333,12 @@
       "Goals Made": 2,
       "Goals Conceded": 4,
       "Delta Goals": -2,
-      "Wins": 1,
-      "Losses": 3,
+      "Wins": 0,
+      "Losses": 2,
       "Result": {
         "label": "Group",
         "ranking": 0
       },
-      "": 0,
       "TotalGames": 3,
       "games": [
         {
@@ -374,7 +353,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Morocco"
           }
@@ -391,7 +369,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Morocco"
           }
@@ -408,7 +385,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Morocco"
           }
@@ -423,13 +399,12 @@
       "Goals Made": 6,
       "Goals Conceded": 6,
       "Delta Goals": 0,
-      "Wins": 2,
-      "Losses": 2,
+      "Wins": 1,
+      "Losses": 1,
       "Result": {
         "label": "Round of Sixteen",
         "ranking": 1
       },
-      "": 0,
       "TotalGames": 4,
       "games": [
         {
@@ -444,7 +419,6 @@
               "label": "Round of Sixteen",
               "ranking": 1
             },
-            "": "",
             "type": "game",
             "Opponent": "Portugal"
           }
@@ -461,7 +435,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Portugal"
           }
@@ -478,7 +451,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Portugal"
           }
@@ -495,7 +467,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Portugal"
           }
@@ -510,13 +481,12 @@
       "Goals Made": 2,
       "Goals Conceded": 2,
       "Delta Goals": 0,
-      "Wins": 3,
-      "Losses": 2,
+      "Wins": 1,
+      "Losses": 1,
       "Result": {
         "label": "Group",
         "ranking": 0
       },
-      "": 0,
       "TotalGames": 3,
       "games": [
         {
@@ -531,7 +501,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "IR Iran"
           }
@@ -548,7 +517,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "IR Iran"
           }
@@ -565,7 +533,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "IR Iran"
           }
@@ -580,13 +547,12 @@
       "Goals Made": 7,
       "Goals Conceded": 6,
       "Delta Goals": 1,
-      "Wins": 3,
-      "Losses": 2,
+      "Wins": 1,
+      "Losses": 1,
       "Result": {
         "label": "Round of Sixteen",
         "ranking": 1
       },
-      "": 0,
       "TotalGames": 4,
       "games": [
         {
@@ -601,7 +567,6 @@
               "label": "Round of Sixteen",
               "ranking": 1
             },
-            "": "",
             "type": "game",
             "Opponent": "Spain"
           }
@@ -618,7 +583,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Spain"
           }
@@ -635,7 +599,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Spain"
           }
@@ -652,7 +615,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Spain"
           }
@@ -668,12 +630,11 @@
       "Goals Conceded": 6,
       "Delta Goals": 8,
       "Wins": 6,
-      "Losses": 1,
+      "Losses": 0,
       "Result": {
         "label": "Winner",
         "ranking": 7
       },
-      "": 0,
       "TotalGames": 7,
       "games": [
         {
@@ -688,7 +649,6 @@
               "label": "Winner",
               "ranking": 7
             },
-            "": "",
             "type": "game",
             "Opponent": "France"
           }
@@ -705,7 +665,6 @@
               "label": "Semi Finals",
               "ranking": 3
             },
-            "": "",
             "type": "game",
             "Opponent": "France"
           }
@@ -722,7 +681,6 @@
               "label": "Quarter Finals",
               "ranking": 2
             },
-            "": "",
             "type": "game",
             "Opponent": "France"
           }
@@ -739,7 +697,6 @@
               "label": "Round of Sixteen",
               "ranking": 1
             },
-            "": "",
             "type": "game",
             "Opponent": "France"
           }
@@ -756,7 +713,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "France"
           }
@@ -773,7 +729,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "France"
           }
@@ -790,7 +745,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "France"
           }
@@ -805,13 +759,12 @@
       "Goals Made": 2,
       "Goals Conceded": 2,
       "Delta Goals": 0,
-      "Wins": 2,
-      "Losses": 3,
+      "Wins": 1,
+      "Losses": 2,
       "Result": {
         "label": "Group",
         "ranking": 0
       },
-      "": 0,
       "TotalGames": 3,
       "games": [
         {
@@ -826,7 +779,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Peru"
           }
@@ -843,7 +795,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Peru"
           }
@@ -860,7 +811,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Peru"
           }
@@ -875,13 +825,12 @@
       "Goals Made": 3,
       "Goals Conceded": 2,
       "Delta Goals": 1,
-      "Wins": 3,
-      "Losses": 2,
+      "Wins": 1,
+      "Losses": 1,
       "Result": {
         "label": "Round of Sixteen",
         "ranking": 1
       },
-      "": 0,
       "TotalGames": 4,
       "games": [
         {
@@ -896,7 +845,6 @@
               "label": "Round of Sixteen",
               "ranking": 1
             },
-            "": "",
             "type": "game",
             "Opponent": "Denmark"
           }
@@ -913,7 +861,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Denmark"
           }
@@ -930,7 +877,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Denmark"
           }
@@ -947,7 +893,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Denmark"
           }
@@ -962,13 +907,12 @@
       "Goals Made": 2,
       "Goals Conceded": 5,
       "Delta Goals": -3,
-      "Wins": 1,
-      "Losses": 3,
+      "Wins": 0,
+      "Losses": 2,
       "Result": {
         "label": "Group",
         "ranking": 0
       },
-      "": 0,
       "TotalGames": 3,
       "games": [
         {
@@ -983,7 +927,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Australia"
           }
@@ -1000,7 +943,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Australia"
           }
@@ -1017,7 +959,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Australia"
           }
@@ -1032,13 +973,12 @@
       "Goals Made": 6,
       "Goals Conceded": 9,
       "Delta Goals": -3,
-      "Wins": 3,
-      "Losses": 3,
+      "Wins": 1,
+      "Losses": 2,
       "Result": {
         "label": "Round of Sixteen",
         "ranking": 1
       },
-      "": 0,
       "TotalGames": 4,
       "games": [
         {
@@ -1053,7 +993,6 @@
               "label": "Round of Sixteen",
               "ranking": 1
             },
-            "": "",
             "type": "game",
             "Opponent": "Argentina"
           }
@@ -1070,7 +1009,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Argentina"
           }
@@ -1087,7 +1025,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Argentina"
           }
@@ -1104,7 +1041,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Argentina"
           }
@@ -1119,13 +1055,12 @@
       "Goals Made": 14,
       "Goals Conceded": 9,
       "Delta Goals": 5,
-      "Wins": 5,
-      "Losses": 4,
+      "Wins": 6,
+      "Losses": 1,
       "Result": {
         "label": "Runner-Up",
         "ranking": 6
       },
-      "": 0,
       "TotalGames": 7,
       "games": [
         {
@@ -1140,7 +1075,6 @@
               "label": "Runner-Up",
               "ranking": 6
             },
-            "": "",
             "type": "game",
             "Opponent": "Croatia"
           }
@@ -1157,7 +1091,6 @@
               "label": "Semi Finals",
               "ranking": 3
             },
-            "": "",
             "type": "game",
             "Opponent": "Croatia"
           }
@@ -1174,7 +1107,6 @@
               "label": "Quarter Finals",
               "ranking": 2
             },
-            "": "",
             "type": "game",
             "Opponent": "Croatia"
           }
@@ -1191,7 +1123,6 @@
               "label": "Round of Sixteen",
               "ranking": 1
             },
-            "": "",
             "type": "game",
             "Opponent": "Croatia"
           }
@@ -1208,7 +1139,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Croatia"
           }
@@ -1225,7 +1155,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Croatia"
           }
@@ -1242,7 +1171,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Croatia"
           }
@@ -1257,13 +1185,12 @@
       "Goals Made": 3,
       "Goals Conceded": 4,
       "Delta Goals": -1,
-      "Wins": 2,
+      "Wins": 1,
       "Losses": 2,
       "Result": {
         "label": "Group",
         "ranking": 0
       },
-      "": 0,
       "TotalGames": 3,
       "games": [
         {
@@ -1278,7 +1205,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Nigeria"
           }
@@ -1295,7 +1221,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Nigeria"
           }
@@ -1312,7 +1237,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Nigeria"
           }
@@ -1327,13 +1251,12 @@
       "Goals Made": 2,
       "Goals Conceded": 5,
       "Delta Goals": -3,
-      "Wins": 1,
-      "Losses": 3,
+      "Wins": 0,
+      "Losses": 2,
       "Result": {
         "label": "Group",
         "ranking": 0
       },
-      "": 0,
       "TotalGames": 3,
       "games": [
         {
@@ -1348,7 +1271,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Iceland"
           }
@@ -1365,7 +1287,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Iceland"
           }
@@ -1382,7 +1303,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Iceland"
           }
@@ -1397,13 +1317,12 @@
       "Goals Made": 2,
       "Goals Conceded": 5,
       "Delta Goals": -3,
-      "Wins": 1,
-      "Losses": 3,
+      "Wins": 0,
+      "Losses": 2,
       "Result": {
         "label": "Group",
         "ranking": 0
       },
-      "": 0,
       "TotalGames": 3,
       "games": [
         {
@@ -1418,7 +1337,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Costa Rica"
           }
@@ -1435,7 +1353,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Costa Rica"
           }
@@ -1452,7 +1369,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Costa Rica"
           }
@@ -1464,17 +1380,16 @@
   {
     "key": "Brazil",
     "value": {
-      "Goals Made": 10,
+      "Goals Made": 8,
       "Goals Conceded": 3,
-      "Delta Goals": 7,
-      "Wins": 5,
-      "Losses": 3,
+      "Delta Goals": 5,
+      "Wins": 3,
+      "Losses": 1,
       "Result": {
         "label": "Quarter Finals",
         "ranking": 2
       },
-      "": 0,
-      "TotalGames": 6,
+      "TotalGames": 5,
       "games": [
         {
           "key": "Belgium",
@@ -1488,7 +1403,6 @@
               "label": "Quarter Finals",
               "ranking": 2
             },
-            "": "",
             "type": "game",
             "Opponent": "Brazil"
           }
@@ -1505,7 +1419,6 @@
               "label": "Round of Sixteen",
               "ranking": 1
             },
-            "": "",
             "type": "game",
             "Opponent": "Brazil"
           }
@@ -1522,7 +1435,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Brazil"
           }
@@ -1539,7 +1451,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Brazil"
           }
@@ -1556,24 +1467,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
-            "type": "game",
-            "Opponent": "Brazil"
-          }
-        },
-        {
-          "key": "Serbia",
-          "value": {
-            "Goals Made": "2",
-            "Goals Conceded": "0",
-            "Delta Goals": "",
-            "Wins": "",
-            "Losses": "",
-            "Result": {
-              "label": "Group",
-              "ranking": 0
-            },
-            "": "",
             "type": "game",
             "Opponent": "Brazil"
           }
@@ -1585,16 +1478,15 @@
   {
     "key": "Serbia",
     "value": {
-      "Goals Made": 1,
+      "Goals Made": 2,
       "Goals Conceded": 4,
-      "Delta Goals": -3,
-      "Wins": 3,
-      "Losses": 3,
+      "Delta Goals": -2,
+      "Wins": 1,
+      "Losses": 2,
       "Result": {
         "label": "Group",
         "ranking": 0
       },
-      "": 0,
       "TotalGames": 3,
       "games": [
         {
@@ -1609,24 +1501,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
-            "type": "game",
-            "Opponent": "Serbia"
-          }
-        },
-        {
-          "key": "Brazil",
-          "value": {
-            "Goals Made": "0",
-            "Goals Conceded": "2",
-            "Delta Goals": "",
-            "Wins": "",
-            "Losses": "",
-            "Result": {
-              "label": "Group",
-              "ranking": 0
-            },
-            "": "",
             "type": "game",
             "Opponent": "Serbia"
           }
@@ -1643,7 +1517,22 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
+            "type": "game",
+            "Opponent": "Serbia"
+          }
+        },
+        {
+          "key": "Switzerland",
+          "value": {
+            "Goals Made": "1",
+            "Goals Conceded": "2",
+            "Delta Goals": "",
+            "Wins": "",
+            "Losses": "",
+            "Result": {
+              "label": "Group",
+              "ranking": 0
+            },
             "type": "game",
             "Opponent": "Serbia"
           }
@@ -1655,17 +1544,16 @@
   {
     "key": "Switzerland",
     "value": {
-      "Goals Made": 3,
-      "Goals Conceded": 4,
-      "Delta Goals": -1,
+      "Goals Made": 5,
+      "Goals Conceded": 5,
+      "Delta Goals": 0,
       "Wins": 1,
-      "Losses": 2,
+      "Losses": 1,
       "Result": {
         "label": "Round of Sixteen",
         "ranking": 1
       },
-      "": 0,
-      "TotalGames": 3,
+      "TotalGames": 4,
       "games": [
         {
           "key": "Sweden",
@@ -1679,7 +1567,6 @@
               "label": "Round of Sixteen",
               "ranking": 1
             },
-            "": "",
             "type": "game",
             "Opponent": "Switzerland"
           }
@@ -1696,7 +1583,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Switzerland"
           }
@@ -1713,7 +1599,22 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
+            "type": "game",
+            "Opponent": "Switzerland"
+          }
+        },
+        {
+          "key": "Serbia",
+          "value": {
+            "Goals Made": "2",
+            "Goals Conceded": "1",
+            "Delta Goals": "",
+            "Wins": "",
+            "Losses": "",
+            "Result": {
+              "label": "Group",
+              "ranking": 0
+            },
             "type": "game",
             "Opponent": "Switzerland"
           }
@@ -1728,13 +1629,12 @@
       "Goals Made": 2,
       "Goals Conceded": 4,
       "Delta Goals": -2,
-      "Wins": 2,
+      "Wins": 1,
       "Losses": 2,
       "Result": {
         "label": "Group",
         "ranking": 0
       },
-      "": 0,
       "TotalGames": 3,
       "games": [
         {
@@ -1749,7 +1649,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Germany"
           }
@@ -1766,7 +1665,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Germany"
           }
@@ -1783,7 +1681,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Germany"
           }
@@ -1799,12 +1696,11 @@
       "Goals Conceded": 4,
       "Delta Goals": 2,
       "Wins": 3,
-      "Losses": 3,
+      "Losses": 2,
       "Result": {
         "label": "Quarter Finals",
         "ranking": 2
       },
-      "": 0,
       "TotalGames": 5,
       "games": [
         {
@@ -1819,7 +1715,6 @@
               "label": "Quarter Finals",
               "ranking": 2
             },
-            "": "",
             "type": "game",
             "Opponent": "Sweden"
           }
@@ -1836,7 +1731,6 @@
               "label": "Round of Sixteen",
               "ranking": 1
             },
-            "": "",
             "type": "game",
             "Opponent": "Sweden"
           }
@@ -1853,7 +1747,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Sweden"
           }
@@ -1870,7 +1763,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Sweden"
           }
@@ -1887,7 +1779,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Sweden"
           }
@@ -1902,13 +1793,12 @@
       "Goals Made": 3,
       "Goals Conceded": 3,
       "Delta Goals": 0,
-      "Wins": 2,
+      "Wins": 1,
       "Losses": 2,
       "Result": {
         "label": "Group",
         "ranking": 0
       },
-      "": 0,
       "TotalGames": 3,
       "games": [
         {
@@ -1923,7 +1813,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Korea Republic"
           }
@@ -1940,7 +1829,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Korea Republic"
           }
@@ -1957,7 +1845,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Korea Republic"
           }
@@ -1972,13 +1859,12 @@
       "Goals Made": 3,
       "Goals Conceded": 6,
       "Delta Goals": -3,
-      "Wins": 3,
-      "Losses": 4,
+      "Wins": 2,
+      "Losses": 2,
       "Result": {
         "label": "Round of Sixteen",
         "ranking": 1
       },
-      "": 0,
       "TotalGames": 4,
       "games": [
         {
@@ -1993,7 +1879,6 @@
               "label": "Round of Sixteen",
               "ranking": 1
             },
-            "": "",
             "type": "game",
             "Opponent": "Mexico"
           }
@@ -2010,7 +1895,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Mexico"
           }
@@ -2027,7 +1911,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Mexico"
           }
@@ -2044,7 +1927,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Mexico"
           }
@@ -2060,12 +1942,11 @@
       "Goals Conceded": 6,
       "Delta Goals": 10,
       "Wins": 6,
-      "Losses": 2,
+      "Losses": 1,
       "Result": {
         "label": "Third Place",
         "ranking": 5
       },
-      "": 0,
       "TotalGames": 7,
       "games": [
         {
@@ -2080,7 +1961,6 @@
               "label": "Third Place",
               "ranking": 5
             },
-            "": "",
             "type": "game",
             "Opponent": "Belgium"
           }
@@ -2097,7 +1977,6 @@
               "label": "Semi Finals",
               "ranking": 3
             },
-            "": "",
             "type": "game",
             "Opponent": "Belgium"
           }
@@ -2114,7 +1993,6 @@
               "label": "Quarter Finals",
               "ranking": 2
             },
-            "": "",
             "type": "game",
             "Opponent": "Belgium"
           }
@@ -2131,7 +2009,6 @@
               "label": "Round of Sixteen",
               "ranking": 1
             },
-            "": "",
             "type": "game",
             "Opponent": "Belgium"
           }
@@ -2148,7 +2025,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Belgium"
           }
@@ -2165,7 +2041,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Belgium"
           }
@@ -2182,7 +2057,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Belgium"
           }
@@ -2197,13 +2071,12 @@
       "Goals Made": 5,
       "Goals Conceded": 8,
       "Delta Goals": -3,
-      "Wins": 2,
-      "Losses": 3,
+      "Wins": 1,
+      "Losses": 2,
       "Result": {
         "label": "Group",
         "ranking": 0
       },
-      "": 0,
       "TotalGames": 3,
       "games": [
         {
@@ -2218,7 +2091,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Tunisia"
           }
@@ -2235,7 +2107,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Tunisia"
           }
@@ -2252,7 +2123,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Tunisia"
           }
@@ -2268,12 +2138,11 @@
       "Goals Conceded": 8,
       "Delta Goals": 4,
       "Wins": 4,
-      "Losses": 5,
+      "Losses": 3,
       "Result": {
         "label": "Fourth Place",
         "ranking": 4
       },
-      "": 0,
       "TotalGames": 7,
       "games": [
         {
@@ -2288,7 +2157,6 @@
               "label": "Fourth Place",
               "ranking": 4
             },
-            "": "",
             "type": "game",
             "Opponent": "England"
           }
@@ -2305,7 +2173,6 @@
               "label": "Semi Finals",
               "ranking": 3
             },
-            "": "",
             "type": "game",
             "Opponent": "England"
           }
@@ -2322,7 +2189,6 @@
               "label": "Quarter Finals",
               "ranking": 2
             },
-            "": "",
             "type": "game",
             "Opponent": "England"
           }
@@ -2339,7 +2205,6 @@
               "label": "Round of Sixteen",
               "ranking": 1
             },
-            "": "",
             "type": "game",
             "Opponent": "England"
           }
@@ -2356,7 +2221,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "England"
           }
@@ -2373,7 +2237,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "England"
           }
@@ -2390,7 +2253,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "England"
           }
@@ -2405,13 +2267,12 @@
       "Goals Made": 2,
       "Goals Conceded": 11,
       "Delta Goals": -9,
-      "Wins": 1,
+      "Wins": 0,
       "Losses": 3,
       "Result": {
         "label": "Group",
         "ranking": 0
       },
-      "": 0,
       "TotalGames": 3,
       "games": [
         {
@@ -2426,7 +2287,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Panama"
           }
@@ -2443,7 +2303,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Panama"
           }
@@ -2460,7 +2319,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Panama"
           }
@@ -2475,13 +2333,12 @@
       "Goals Made": 6,
       "Goals Conceded": 3,
       "Delta Goals": 3,
-      "Wins": 4,
-      "Losses": 3,
+      "Wins": 2,
+      "Losses": 2,
       "Result": {
         "label": "Round of Sixteen",
         "ranking": 1
       },
-      "": 0,
       "TotalGames": 4,
       "games": [
         {
@@ -2496,7 +2353,6 @@
               "label": "Round of Sixteen",
               "ranking": 1
             },
-            "": "",
             "type": "game",
             "Opponent": "Colombia"
           }
@@ -2513,7 +2369,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Colombia"
           }
@@ -2530,7 +2385,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Colombia"
           }
@@ -2547,7 +2401,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Colombia"
           }
@@ -2562,13 +2415,12 @@
       "Goals Made": 2,
       "Goals Conceded": 5,
       "Delta Goals": -3,
-      "Wins": 3,
-      "Losses": 3,
+      "Wins": 1,
+      "Losses": 2,
       "Result": {
         "label": "Group",
         "ranking": 0
       },
-      "": 0,
       "TotalGames": 3,
       "games": [
         {
@@ -2583,7 +2435,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Poland"
           }
@@ -2600,7 +2451,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Poland"
           }
@@ -2617,7 +2467,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Poland"
           }
@@ -2632,13 +2481,12 @@
       "Goals Made": 6,
       "Goals Conceded": 7,
       "Delta Goals": -1,
-      "Wins": 3,
-      "Losses": 3,
+      "Wins": 1,
+      "Losses": 2,
       "Result": {
         "label": "Round of Sixteen",
         "ranking": 1
       },
-      "": 0,
       "TotalGames": 4,
       "games": [
         {
@@ -2653,7 +2501,6 @@
               "label": "Round of Sixteen",
               "ranking": 1
             },
-            "": "",
             "type": "game",
             "Opponent": "Japan"
           }
@@ -2670,7 +2517,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Japan"
           }
@@ -2687,7 +2533,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Japan"
           }
@@ -2704,7 +2549,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Japan"
           }
@@ -2719,13 +2563,12 @@
       "Goals Made": 4,
       "Goals Conceded": 4,
       "Delta Goals": 0,
-      "Wins": 2,
-      "Losses": 3,
+      "Wins": 1,
+      "Losses": 1,
       "Result": {
         "label": "Group",
         "ranking": 0
       },
-      "": 0,
       "TotalGames": 3,
       "games": [
         {
@@ -2740,7 +2583,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Senegal"
           }
@@ -2757,7 +2599,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Senegal"
           }
@@ -2774,7 +2615,6 @@
               "label": "Group",
               "ranking": 0
             },
-            "": "",
             "type": "game",
             "Opponent": "Senegal"
           }

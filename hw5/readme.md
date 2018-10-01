@@ -219,7 +219,7 @@ Once you got this far, you have the main view of your visualization up and runni
 
 Next, we'll make it possible to dynamically add the games that a team played. Click on any aggregate row to expand the table and show an extra row for each match played by that country. 
 
-When we show the games played by a team, right underneath the team and before the next team's row, we use a slightly different visual encoding for the goals scored, conceded and the goal difference, to set them apart from the aggregated per-team goals charts visualization. We use the same scale, but we're encoding something different, so we style it differently. We use a "ring" instead of a circle, and a narrow line/rectangle to encode the difference. The first column shows the opponent with an 'x', as in 'xArgentina'. Also, in the Round/Result column, we show the round of the particular game (group phase, round of sixteen, etc.) The other columns are not used for game rows. Here is an example for Germany:
+When we show the games played by a team, right underneath the team and before the next team's row, we use a slightly different visual encoding for the goals scored, conceded and the goal difference, to set them apart from the aggregated per-team goals charts visualization. We use the same scale, but we're encoding something different, so we style it differently. We use a "ring" instead of a circle, and a narrow line/rectangle to encode the difference. The first column shows the opponent with an 'x', as in 'xArgentina'. Also, in the Round/Result column, we show the round of the particular game (group phase, round of sixteen, etc.) The other columns are not used for game rows. Here is an example:
 
 ![Expanded Table](figs/expand_new.gif)
 
@@ -289,7 +289,7 @@ When a user hovers over a game row, only that game should highlight in the tree.
 
 ## DONE! 
 
-Your final solution should behave something [like this](https://youtu.be/XptHn4kV5xw)
+Your final solution should behave something [like this](https://youtu.be/0LPHsRZfEwM)
 
 ## Grading
 

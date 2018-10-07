@@ -227,13 +227,12 @@ class Table {
         //Data for each cell is of the type: {'type':<'game' or 'aggregate'>, 'vis' :<'bar', 'goals', or 'text'>, 'value':<[array of 1 or two elements]>}
         let td = table.selectAll("td")
             .data(d => [
-                {type: d.value.type, vis: "goals", value: {goalsMade: d.value[that.goalsMadeHeader], goalsConceded: d.value[that.goalsConcededHeader], delta: d.value[that.goalsMadeHeader] - d.value[that.goalsConcededHeader]}},
+                {type: d.value.type, vis: "goals", value: {goalsMade: d.value[that.goalsMadeHeader], goalsConceded: d.value[that.goalsConcededHeader], deltaGoals: d.value[that.goalsMadeHeader] - d.value[that.goalsConcededHeader]}},
                 {type: d.value.type, vis: "text", value: d.value.Result.label},
                 {type: d.value.type, vis: "bar", value: d.value.Wins},
                 {type: d.value.type, vis: "bar", value: d.value.Losses},
                 {type: d.value.type, vis: "bar", value: d.value.TotalGames}
             ]);
-
         let tdVal = td.enter().append("td");
         td.exit().remove();
         td = tdVal.merge(td);
@@ -246,10 +245,8 @@ class Table {
             return d3.select(this).data();
         });
         let svgGroupEnter = svgGroup.enter().append("svg");
-
         svgGroup.exit().remove();
         svgGroup = svgGroupEnter.merge(svgGroup);
-
         svgGroup.attr("height", this.cell.height)
             .attr("width", 2 * this.cell.width + this.cell.buffer);
 
@@ -264,10 +261,8 @@ class Table {
             return d3.select(this).data();
         });
         let scoreBarsEnter = scoreBars.enter().append("rect");
-
         scoreBars.exit().remove();
         scoreBars = scoreBarsEnter.merge(scoreBars);
-
         scoreBars.attr("x", d => {
             let retVal = d.value.goalsMade > d.value.goalsConceded ? that.goalScale(d.value.goalsConceded) : that.goalScale(d.value.goalsMade);
             if (d.type === "game") {
@@ -278,23 +273,23 @@ class Table {
             .attr("y", d => { return d.type === "game" ? 8 : 5; })
             .attr("height", d => { return d.type === "game" ? 4: 10; })
             .attr("width", d => {
-                if (d.value.delta === 0) {
+                if (d.value.deltaGoals === 0) {
                     return 0;
                 }
-                let width = that.goalScale(Math.abs(d.value.delta))- that.cell.buffer;
+                let width = that.goalScale(Math.abs(d.value.deltaGoals))- that.cell.buffer;
                 if (d.type === "game") {
                     return width > 10 ? width-10 : 0;
                 }
                 return Math.abs(width);
             })
             .classed("goalBar", true)
-            .style("fill", d => { return d.value.delta > 0 ? "#364e74" : "#be2714"; });
+            .style("fill", d => { return d.value.deltaGoals > 0 ? "#364e74" : "#be2714"; });
 
         //Create diagrams in the goals column
 
         //Set the color of all games that tied to light gray
 
-        let scoreCirclesWin = scoreGroup.selectAll(".goalMade").data(function(d){
+        let scoreCirclesWin = scoreGroup.selectAll("circle").data(function(d){
             return d3.select(this).data();
         });
         let scoreCirclesWinEnter = scoreCirclesWin.enter().append("circle");
@@ -304,9 +299,9 @@ class Table {
             .attr("cy", 10)
             .classed("goalCircle", true)
             .style("fill", d => {return d.type === "game" ? "none" : "#364e74"; })
-            .classed("goalMade", true);
+            .style("stroke", "#364e74");
 
-        let scoreCirclesLoss = scoreGroup.selectAll(".goalConceded").data(function(d){
+        let scoreCirclesLoss = scoreGroup.selectAll("circles").data(function(d){
             return d3.select(this).data();
         });
         let scoreCirclesLossEnter = scoreCirclesLoss.enter().append("circle");
@@ -319,16 +314,16 @@ class Table {
                 if (d.type === "game") {
                     return "none";
                 }
-                if (d.value.delta == 0) {
+                if (d.value.deltaGoals == 0) {
                     return "grey";
                 }
                 return "#be2714";
             })
-            .classed("goalConceded", true)
             .style("stroke", d => {
-                if (d.value.delta == 0) {
+                if (d.value.deltaGoals == 0) {
                     return "grey";
                 }
+                return "#be2714";
             });
 
         scoreGroup.on("mouseover", function(d){
@@ -346,7 +341,6 @@ class Table {
         let resultEnter = resultSvg.enter().append("svg");
         resultSvg.exit().remove();
         resultSvg = resultEnter.merge(resultSvg);
-
         resultSvg.attr("width", 2 * this.cell.width)
             .attr("height", this.cell.height);
 
@@ -366,7 +360,6 @@ class Table {
         let gameSvgEnter = gameSvg.enter().append("svg");
         gameSvg.exit().remove();
         gameSvg = gameSvgEnter.merge(gameSvg);
-
         gameSvg.attr("width", this.cell.width)
             .attr("height", this.cell.height)
             .attr("transform", "translate(-5, 0)");
@@ -384,8 +377,7 @@ class Table {
         let gameBarsEnter = gameBars.enter().append("rect");
         gameBars.exit().remove();
         gameBars = gameBarsEnter.merge(gameBars);
-
-        gameBars.attr("x", 0)
+        gameBars.attr("x", 5)
             .attr("y", 5)
             .attr("height", 20)
             .attr("width", d => {

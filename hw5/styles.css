@@ -108,13 +108,6 @@ header {
     r: 5px;
 }
 
-.goalMade{
-    stroke: #364e74;
-}
-
-.goalConceded{
-    stroke: #be2714;
-}
 
 .node circle {
     fill: #be2714;;

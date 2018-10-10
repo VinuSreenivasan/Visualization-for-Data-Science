@@ -148,8 +148,8 @@ class Table {
         let that = this;
         that.teamData.sort(function(a, b){
             if(that.goalFlag)
-                return d3.ascending(a.value[that.goalsMadeHeader], b.value[that.goalsMadeHeader]);
-            return d3.descending(a.value[that.goalsMadeHeader], b.value[that.goalsMadeHeader]);
+                return d3.ascending(a.value["Delta Goals"], b.value["Delta Goals"]);
+            return d3.descending(a.value["Delta Goals"], b.value["Delta Goals"]);
         });
         that.goalFlag = !that.goalFlag;
         that.collapseList();
@@ -414,13 +414,13 @@ class Table {
        
         //Only update list for aggregate clicks, not game clicks
         let selectedTeam = this.tableElements[i];
+        if(selectedTeam.value.type === "game"){
+            return;
+        }
         let gamesArray = selectedTeam.value.games;
         let nextToSelection = this.tableElements[i+1];
         let teamData = this.tableElements.slice();
 
-        if(selectedTeam.type === "game"){
-            return;
-        }
         //console.log(selectedTeam);
 
         this.tableElements = [];

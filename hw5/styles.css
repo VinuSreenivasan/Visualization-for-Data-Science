@@ -99,6 +99,10 @@ header {
     height: 100px;
 }
 
+#tree-map {
+    float: right;
+}
+
 .goalBar{
     opacity:0.6;
 }

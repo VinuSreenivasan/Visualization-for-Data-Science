@@ -50,9 +50,9 @@ d3.csv("data/fifa-matches-2018.csv").then( matchesCSV => {
     };
 
     let rankOrder = function(d){
-        for(let iter in ranking) {
-            if (ranking[iter] == d) {
-                return iter;
+        for(let tag in ranking) {
+            if (ranking[tag] == d) {
+                return tag;
             }
         }
     };
@@ -79,17 +79,17 @@ d3.csv("data/fifa-matches-2018.csv").then( matchesCSV => {
                  .key(d => d.Opponent)
                  .rollup(games => {
                      let leaf = games[0];
-                     let gameObj = new Object;
+                     let game = new Object;
                      let gameIndex = d3.max(games, d=>ranking[d.Result]);
-                     gameObj["Goals Made"] = leaf["Goals Made"];
-                     gameObj["Goals Conceded"] = leaf["Goals Conceded"];
-                     gameObj["Delta Goals"] = gameObj["Goals Made"] - gameObj["Goals Conceded"];
-                     gameObj.Wins = [];
-                     gameObj.Losses = [];
-                     gameObj.Result = {"label": rankOrder(gameIndex), "ranking": gameIndex};
-                     gameObj.type = "game";
-                     gameObj.Opponent = leaf.Team;
-                     return gameObj;
+                     game["Goals Made"] = leaf["Goals Made"];
+                     game["Goals Conceded"] = leaf["Goals Conceded"];
+                     game["Delta Goals"] = game["Goals Made"] - game["Goals Conceded"];
+                     game.Wins = [];
+                     game.Losses = [];
+                     game.Result = {"label": rankOrder(gameIndex), "ranking": gameIndex};
+                     game.type = "game";
+                     game.Opponent = leaf.Team;
+                     return game;
                  })
                  .entries(leaves);
              myObj.games.sort(function(x, y){

@@ -75,23 +75,23 @@ d3.csv("data/fifa-matches-2018.csv").then( matchesCSV => {
              myObj.Result = {"label": rankOrder(rankIndex), "ranking": rankIndex};
              myObj.TotalGames = leaves.length;
              myObj.type = "aggregate";
-             myObj.games = d3.nest()
-                 .key(d => d.Opponent)
-                 .rollup(games => {
-                     let leaf = games[0];
-                     let game = new Object;
-                     let gameIndex = d3.max(games, d=>ranking[d.Result]);
-                     game["Goals Made"] = leaf["Goals Made"];
-                     game["Goals Conceded"] = leaf["Goals Conceded"];
-                     game["Delta Goals"] = game["Goals Made"] - game["Goals Conceded"];
-                     game.Wins = [];
-                     game.Losses = [];
-                     game.Result = {"label": rankOrder(gameIndex), "ranking": gameIndex};
-                     game.type = "game";
-                     game.Opponent = leaf.Team;
-                     return game;
-                 })
-                 .entries(leaves);
+             let games = [], count = 0;
+             for (let i of leaves) {
+                 let game = {};
+                 game.key = i.Opponent;
+                 game.value = {
+                     "Delta Goals": [],
+                     "Goals Conceded": i["Goals Conceded"],
+                     "Goals Made": i["Goals Made"],
+                     "Losses": [],
+                     "Opponent": i.Team,
+                     "Wins": [],
+                     "Result": {"label": i.Result, "ranking": ranking[i.Result]},
+                     "type": "game",
+                 };
+                 games[count++] = game;
+             }
+             myObj.games = games;
              myObj.games.sort(function(x, y){
                  return d3.descending(x.value.Result.ranking, y.value.Result.ranking);
              });

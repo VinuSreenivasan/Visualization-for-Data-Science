@@ -440,7 +440,7 @@ class Table {
      *
      */
     collapseList() {
-        
+
         // ******* TODO: PART IV *******
         this.tableElements = this.teamData;
         this.updateTable();

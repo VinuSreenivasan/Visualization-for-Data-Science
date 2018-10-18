@@ -44,9 +44,9 @@ tbody tr:hover {
     background-color: #feebe2;
 }
 
-tbody tr .game {
+/*tbody tr .game {
     background-color: #f0f0f0;
-}
+}*/
 
 .label{
     fill: #ffffff;

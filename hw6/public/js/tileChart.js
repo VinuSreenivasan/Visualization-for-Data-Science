@@ -9,14 +9,14 @@ class TileChart {
         // Follow the constructor method in yearChart.js
         // assign class 'content' in style.css to tile chart
 
-
-
-
-
-
+        let divTileChart = d3.select("#tiles").classed("tile_view", true);
+        this.margin = {top: 10, right: 20, bottom: 20, left: 50};
+        this.svgBounds = divTileChart.node().getBoundingClientRect();
+        this.svgWidth = this.svgBounds.width - this.margin.left - this.margin.right;
+        this.svgHeight = this.svgWidth / 2;
 
         // Legend
-        let legendHeight = 150;
+        let legendHeight = 100;
         //add the svg to the div
         let legend = d3.select("#legend").classed("tile_view",true);
 
@@ -25,6 +25,11 @@ class TileChart {
                             .attr("width",this.svgWidth)
                             .attr("height",legendHeight)
                             .attr("transform", "translate(" + this.margin.left + ",0)");
+
+        this.svg = divTileChart.append("svg")
+            .attr("width", this.svgWidth)
+            .attr("height", this.svgHeight)
+            .attr("transform", "translate(" + this.margin.left + ",0)");
         
         // Intialize tool-tip
         this.tip = d3.tip().attr('class', 'd3-tip')
@@ -77,9 +82,24 @@ class TileChart {
      */
     update (electionResult, colorScale){
 
+        let that = this;
+
         //for reference:https://github.com/Caged/d3-tip
         //Use this tool tip element to handle any hover over the chart
-            this.tip.html((d)=>{
+        let toolTip = this.tip.html((d)=>{
+            let tooltip_data = {
+                "state": d.State,
+                "winner": d.State_Winner,
+                "electoralVotes": d.Total_EV,
+                "result": [
+                    {"nominee": d.D_Nominee_prop, "votecount": d.D_Votes, "percentage": d.D_Percentage, "party":"D"},
+                    {"nominee": d.R_Nominee_prop, "votecount": d.R_Votes, "percentage": d.R_Percentage, "party":"R"}
+                ]
+            }
+            if(d.I_Votes)
+                tooltip_data.result[2] = {"nominee": d.I_Nominee_prop, "votecount": d.I_Votes, "percentage": d.I_Percentage, "party":"I"};
+            return that.tooltip_render(tooltip_data);
+
                     /* populate data in the following format
                      * tooltip_data = {
                      * "state": State,
@@ -95,14 +115,7 @@ class TileChart {
                      * return the HTML content returned from that method.
                      * */
 
-
-
-
-
-
-
-
-                    });
+        });
 
         // ******* TODO: PART IV *******
         // Transform the legend element to appear in the center 
@@ -122,7 +135,15 @@ class TileChart {
         //then, vote percentage and number of votes won by each party.
         //HINT: Use the .republican, .democrat and .independent classes to style your elements.
         //Creates a legend element and assigns a scale that needs to be visualized
-        
+
+        this.maxColumns = d3.max(electionResult, d => parseInt(d["Space"]));
+        this.maxRows = d3.max(electionResult, d => parseInt(d["Row"]));
+
+        this.legendSvg.append("g")
+            .attr("class", "legendQuantile")
+            .attr("transform", "translate(50,50)")
+            .style("font-size","10px");
+
         let legendQuantile = d3.legendColor()
             .shapeWidth((this.svgWidth - 2*this.margin.left - this.margin.right)/12)
             .cells(10)
@@ -130,32 +151,45 @@ class TileChart {
             .labelFormat(d3.format('.1r'))
             .scale(colorScale);
 
-
-            
-
+        this.legendSvg.select(".legendQuantile").call(legendQuantile);
 
 
+        let tileWidth = this.svgWidth / (this.maxColumns + 1);
+        let tileHeight = this.svgHeight / (this.maxRows + 1);
+
+        let rect = this.svg.selectAll(".tile").data(electionResult);
+        let rectEnter = rect.enter().append("rect");
+
+        rect.exit().remove();
+        rect = rectEnter.merge(rect);
+
+        rect.attr("x", d => parseInt(d.Space) * tileWidth)
+            .attr("y", d => parseInt(d.Row) * tileHeight)
+            .attr("height", tileHeight)
+            .attr("width", tileWidth)
+            .style("fill", d => colorScale(parseFloat(d.RD_Difference)))
+            .classed("tile", true);
 
 
+        let text = this.svg.selectAll(".tilestext") .data(electionResult);
+        let textEnter = text.enter().append("text");
 
+        text.exit().remove();
+        text = textEnter.merge(text);
 
+        text.attr("x", d => parseInt(d.Space) * tileWidth + tileWidth / 2)
+            .attr("y", d => parseInt(d.Row) * tileHeight + tileHeight / 2)
+            .text(d => d.Abbreviation)
+            .classed("tilestext", true)
+            .style("font-size", "15px")
+            .append("tspan")
+            .text(d => d.Total_EV)
+            .attr("x", d => parseInt(d.Space) * tileWidth + tileWidth / 2)
+            .attr("y", d => parseInt(d.Row) * tileHeight + tileHeight / 2 + 20);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
+        this.svg.call(toolTip);
+        rect.on("mouseover", toolTip.show);
+        rect.on("mouseout", toolTip.hide);
     };
-
 
 }

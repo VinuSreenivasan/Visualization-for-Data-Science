@@ -5,8 +5,7 @@ class TrendChart {
      * Initializes the svg elements required for this chart;
      */
     constructor(){
-
-
+        this.divTrendChart = d3.select("#shiftChart").classed("sideBar", true);
     };
 
     /**
@@ -18,6 +17,15 @@ class TrendChart {
      
     // ******* TODO: PART V *******
     //Display the names of selected states in a list
+        let li = d3.select("#stateList").selectAll('li').data(selectedStates);
+        let liEnter = li.enter().append('li');
+
+        li.exit().remove();
+        li = liEnter.merge(li);
+
+        li.transition()
+            .duration(1000)
+            .text(d => d);
 
 
 

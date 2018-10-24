@@ -6,21 +6,22 @@ class YearChart {
      * @param electoralVoteChart instance of ElectoralVoteChart
      * @param tileChart instance of TileChart
      * @param votePercentageChart instance of Vote Percentage Chart
-     * @param electionInfo instance of ElectionInfo
-     * @param electionWinners data corresponding to the winning parties over mutiple election years
+     * @param trendChart instance of TrendChart
+     * @param electionWinners data corresponding to the winning parties over multiple election years
      */
-    constructor (electoralVoteChart, tileChart, votePercentageChart, electionWinners) {
+    constructor (electoralVoteChart, tileChart, votePercentageChart, trendChart, electionWinners) {
 
         //Creating YearChart instance
         this.electoralVoteChart = electoralVoteChart;
         this.tileChart = tileChart;
+        this.trendChart = trendChart;
         this.votePercentageChart = votePercentageChart;
         // the data
         this.electionWinners = electionWinners;
 
         // Initializes the svg elements required for this chart
         this.margin = {top: 10, right: 20, bottom: 20, left: 50};
-        let divyearChart = d3.select("#year-chart").classed("fullview", true);
+        let divyearChart = d3.select("#year-chart").classed("content", true);
 
         //fetch the svg bounds
         this.svgBounds = divyearChart.node().getBoundingClientRect();
@@ -110,8 +111,9 @@ class YearChart {
         texts.exit().remove();
         texts = textsEnter.merge(texts);
 
-        texts.attr("x", (d) => yearScale(d.YEAR) - 7)
+        texts.attr("x", (d) => yearScale(d.YEAR) - 2)
             .attr("y", that.svgHeight / 2 + 35)
+            .style("font-size", "15px")
             .classed("yeartext", true)
             .text(d => d.YEAR);
 
@@ -153,7 +155,25 @@ class YearChart {
        //Call the update method of shiftChart and pass the data corresponding to brush selection.
        //HINT: Use the .brush class to style the brush.
 
+        let brush = d3.brushX().extent([[0, that.svgHeight / 2 + 15],[that.svgWidth, that.svgHeight / 2 + 35]]).on("end", function() {
+            let selected = d3.event.selection;
+            let selectedYears = [];
+            let i = 0;
+            if(selected) {
+                that.svg.selectAll("circle").attr("cx", function() {
+                    let cx = parseFloat(d3.select(this).attr("cx"));
+                    let r = parseFloat(d3.select(this).attr("r"));
+                    if(cx - r - 5 >= selected[0] && cx - r - 5 < selected[1]) {
+                        if((cx + r + 5) <= selected[1])
+                            selectedYears[i++] = d3.select(this).data()[0].YEAR;
+                    }
+                    return cx;
+                });
+            }
+            that.trendChart.updateYears(selectedYears);
+        });
+        that.svg.append("g").attr("class", "brush").call(brush);
 
     };
 
-};
+}

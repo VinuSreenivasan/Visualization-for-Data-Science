@@ -12,7 +12,7 @@ class ElectoralVoteChart {
         this.trendChart = trendChart;
 
         this.margin = {top: 30, right: 20, bottom: 20, left: 50};
-        let divElectoralVoteChart = d3.select("#electoral-vote").classed("content", true);
+        let divElectoralVoteChart = d3.select("#electoral-vote").classed("sub_content", true);
 
         this.svgBounds = divElectoralVoteChart.node().getBoundingClientRect();
         this.svgWidth = this.svgBounds.width - this.margin.left - this.margin.right;
@@ -189,6 +189,7 @@ class ElectoralVoteChart {
                 .attr("x", 0)
                 .attr("y", 25)
                 .text(demoText)
+                .style("font-size", "20px")
                 .attr("class", this.chooseClass("D"))
                 .classed("electoralVoteText", true);
         }
@@ -197,6 +198,7 @@ class ElectoralVoteChart {
                 .attr("x", 0)
                 .attr("y", 75)
                 .text(repText)
+                .style("font-size", "20px")
                 .attr("class", this.chooseClass("R"))
                 .classed("electoralVoteText", true);
         }
@@ -205,6 +207,7 @@ class ElectoralVoteChart {
                 .attr("x", 0)
                 .attr("y", 125)
                 .text(indText)
+                .style("font-size", "20px")
                 .attr("class", this.chooseClass("I"))
                 .classed("electoralVoteText", true);
         }
@@ -212,7 +215,7 @@ class ElectoralVoteChart {
        // Display a bar with minimal width in the center of the bar chart to indicate the 50% mark
        // HINT: Use .middlePoint class to style this bar.
 
-        let markerPosition = 268;
+        let markerPosition = 270;
         this.svg.selectAll(".middlePoint").remove();
         this.svg.append("rect")
             .attr("x", xScale(markerPosition))
@@ -231,6 +234,7 @@ class ElectoralVoteChart {
             .attr("x", xScale(markerPosition))
             .attr("y", 15)
             .text("270 needed to win")
+            .style("font-size", "15px")
             .classed("electoralVotesNote", true);
 
 
@@ -247,18 +251,16 @@ class ElectoralVoteChart {
             if(selected!==null){
                 let min  = xScale.invert(selected[0]);
                 let max  = xScale.invert(selected[1]);
-                let selectedStates = []
-                for (var i = 0; i < demoPositions.length-1; i++) {
-                    // selecting the states even if half portion is inside brush selection
+                let selectedStates = [];
+                for (let i = 0; i < demoPositions.length-1; i++) {
                     if((demoPositions[i]>=min && demoPositions[i+1]<=max) ||
                         (demoPositions[i]<min && demoPositions[i+1]>=min) ||
                         (demoPositions[i]<=max && demoPositions[i+1]>max)){
                         selectedStates.push(demoData[i].State);
                     }
                 }
-                that.trendChart.update(selectedStates);
+                that.trendChart.demoUpdate(selectedStates);
             }
-
         });
         this.svg.append("g").attr("class", "brush").call(demobrush);
 
@@ -267,18 +269,16 @@ class ElectoralVoteChart {
             if(selected!==null){
                 let min  = xScale.invert(selected[0]);
                 let max  = xScale.invert(selected[1]);
-                let selectedStates = []
-                for (var i = 0; i < repPositions.length-1; i++) {
-                    // selecting the states even if half portion is inside brush selection
+                let selectedStates = [];
+                for (let i = 0; i < repPositions.length-1; i++) {
                     if((repPositions[i]>=min && repPositions[i+1]<=max) ||
                         (repPositions[i]<min && repPositions[i+1]>=min) ||
                         (repPositions[i]<=max && repPositions[i+1]>max)){
                         selectedStates.push(repData[i].State);
                     }
                 }
-                that.trendChart.update(selectedStates);
+                that.trendChart.repUpdate(selectedStates);
             }
-
         });
         this.svg.append("g").attr("class", "brush").call(repbrush);
 
@@ -287,22 +287,19 @@ class ElectoralVoteChart {
             if(selected!==null){
                 let min  = xScale.invert(selected[0]);
                 let max  = xScale.invert(selected[1]);
-                let selectedStates = []
-                for (var i = 0; i < indPositions.length-1; i++) {
-                    // selecting the states even if half portion is inside brush selection
+                let selectedStates = [];
+                for (let i = 0; i < indPositions.length-1; i++) {
                     if((indPositions[i]>=min && indPositions[i+1]<=max) ||
                         (indPositions[i]<min && indPositions[i+1]>=min) ||
                         (indPositions[i]<=max && indPositions[i+1]>max)){
                         selectedStates.push(indData[i].State);
                     }
                 }
-                that.trendChart.update(selectedStates);
+                that.trendChart.indUpdate(selectedStates);
             }
-
         });
         this.svg.append("g").attr("class", "brush").call(indbrush);
 
     };
 
-    
 }

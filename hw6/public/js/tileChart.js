@@ -181,7 +181,7 @@ class TileChart {
             .attr("y", d => parseInt(d.Row) * tileHeight + tileHeight / 2)
             .text(d => d.Abbreviation)
             .classed("tilestext", true)
-            .style("font-size", "15px")
+            .style("font-size", "12px")
             .append("tspan")
             .text(d => d.Total_EV)
             .attr("x", d => parseInt(d.Space) * tileWidth + tileWidth / 2)

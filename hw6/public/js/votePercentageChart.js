@@ -9,7 +9,7 @@ class VotePercentageChart {
 		// assign class 'content' in style.css to vote percentage chart
 
         this.margin = {top: 10, right: 20, bottom: 20, left: 50};
-        let divVotePercentageChart = d3.select("#votes-percentage").classed("content", true);
+        let divVotePercentageChart = d3.select("#votes-percentage").classed("sub_content", true);
 
         this.svgBounds = divVotePercentageChart.node().getBoundingClientRect();
         this.svgWidth = this.svgBounds.width - this.margin.left - this.margin.right;
@@ -124,7 +124,7 @@ class VotePercentageChart {
 		    //HINT: Use .votesPercentage class to style your bars.
 
         let xScale = d3.scaleLinear()
-            .domain([0, 100])
+            .domain([0, 65])
             .range([0, this.svgWidth]);
 
         let demoRect = this.svg.selectAll("rect").data(demoData);
@@ -177,6 +177,7 @@ class VotePercentageChart {
         demoText.attr("y", 25)
             .text(d => d.percentage===0 ? "" : d.percentage+"%")
             .attr("class", d => that.chooseClass(d.party))
+            .style("font-size", "20px")
             .classed("votesPercentageText", true);
 
         let repText = this.svg.selectAll("text1").data(repData);
@@ -188,6 +189,7 @@ class VotePercentageChart {
         repText.attr("y", 75)
             .text(d => d.percentage===0 ? "" : d.percentage+"%")
             .attr("class", d => that.chooseClass(d.party))
+            .style("font-size", "20px")
             .classed("votesPercentageText", true);
 
         let indText = this.svg.selectAll("text2").data(indData);
@@ -199,6 +201,7 @@ class VotePercentageChart {
         indText.attr("y", 125)
             .text(d => d.percentage===0 ? "" : d.percentage+"%")
             .attr("class", d => that.chooseClass(d.party))
+            .style("font-size", "20px")
             .classed("votesPercentageText", true);
 
 
@@ -208,10 +211,11 @@ class VotePercentageChart {
         demoNominee.exit().remove();
         demoNominee = demoNomineeEnter.merge(demoNominee);
 
-        demoNominee.attr("x", 150)
+        demoNominee.attr("x", 100)
             .attr("y", 25)
             .text(d => d.nominee)
             .attr("class", d => that.chooseClass(d.party))
+            .style("font-size", "20px")
             .classed("nomineeInfoText", true);
 
         let repNominee = this.svg.selectAll("repNominee").data(repData);
@@ -220,10 +224,11 @@ class VotePercentageChart {
         repNominee.exit().remove();
         repNominee = repNomineeEnter.merge(repNominee);
 
-        repNominee.attr("x", 150)
+        repNominee.attr("x", 100)
             .attr("y", 75)
             .text(d => d.nominee)
             .attr("class", d => that.chooseClass(d.party))
+            .style("font-size", "20px")
             .classed("nomineeInfoText", true);
 
         let indNominee = this.svg.selectAll("indNominee").data(indData);
@@ -232,10 +237,11 @@ class VotePercentageChart {
         indNominee.exit().remove();
         indNominee = indNomineeEnter.merge(indNominee);
 
-        indNominee.attr("x", 150)
+        indNominee.attr("x", 100)
             .attr("y", 125)
             .text(d => d.nominee)
             .attr("class", d => that.chooseClass(d.party))
+            .style("font-size", "20px")
             .classed("nomineeInfoText", true);
 
 		    //Display a bar with minimal width in the center of the bar chart to indicate the 50% mark
@@ -257,7 +263,8 @@ class VotePercentageChart {
             .attr("x", xScale(markerPosition))
             .attr("y", 15)
             .classed("votesPercentageNote", true)
-            .text("50%");
+            .text("50%")
+            .style("font-size", "15px");
 
 		    //Call the tool tip on hover over the bars to display stateName, count of electoral votes.
 		    //then, vote percentage and number of votes won by each party.

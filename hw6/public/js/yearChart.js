@@ -155,7 +155,7 @@ class YearChart {
        //Call the update method of shiftChart and pass the data corresponding to brush selection.
        //HINT: Use the .brush class to style the brush.
 
-        let brush = d3.brushX().extent([[0, that.svgHeight / 2 + 15],[that.svgWidth, that.svgHeight / 2 + 35]]).on("end", function() {
+        let brush = d3.brushX().extent([[0, that.svgHeight / 2 + 15],[that.svgWidth, that.svgHeight / 2 + 40]]).on("end", function() {
             let selected = d3.event.selection;
             let selectedYears = [];
             let i = 0;
@@ -164,8 +164,10 @@ class YearChart {
                     let cx = parseFloat(d3.select(this).attr("cx"));
                     let r = parseFloat(d3.select(this).attr("r"));
                     if(cx - r - 5 >= selected[0] && cx - r - 5 < selected[1]) {
-                        if((cx + r + 5) <= selected[1])
+                        //Selection should fully cover the text to be displayed
+                        if((cx + r + 5) <= selected[1]) {
                             selectedYears[i++] = d3.select(this).data()[0].YEAR;
+                        }
                     }
                     return cx;
                 });

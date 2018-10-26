@@ -3,11 +3,11 @@ Visualization 1 - Stacked Bar Chart:
 - I have used stacked bar charts to show the political shifts in the selected states.
 - Using this chart, the data is nicely represented and we can clearly see the shifts and percentage of votes.
 - By Interacting with the chart, we can show the nominees and the number of votes for each state according to the selected year.
-- For the given design, we have to click on year to see the shift but with this design the shift by selecting multiple states over the time.
+- For the given design, we have to click on each year to see the shift but with this design we can see the shift by selecting multiple states over certain period of time.
 
 Visualization 2 - Bubble Chart:
 
 - This chart also clearly represents the shift over the time, we can see the shift in the color of the circle and the position.
-- The circle radius can be according to the number of votes won on that state.
+- The circle radius can be set according to the number of votes won on that state.
 - This design has a disadvantage that circles can cluster together or overlap one another if they have similar range of winning percentage.
-- If the circles overlaps then it will be hard to see the political shifts.
+- If the circle overlaps, then it will be hard to see the political shifts.

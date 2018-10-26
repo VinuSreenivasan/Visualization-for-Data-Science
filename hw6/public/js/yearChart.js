@@ -135,13 +135,19 @@ class YearChart {
             d3.select(this).classed("highlighted", false);
         });
 
+        /*d3.csv("data/Year_Timeline_2012.csv").then(electionResult => {
+            that.electoralVoteChart.update(electionResult, that.colorScale);
+            that.votePercentageChart.update(electionResult);
+            that.tileChart.update(electionResult, that.colorScale);
+        });*/
+
         circles.on("click", function(d){
             d3.selectAll(".selected").classed("selected", false);
             d3.selectAll(".yearChart").attr("r", 10);
             d3.select(this).classed("selected", true);
 
             d3.csv("data/Year_Timeline_"+d.YEAR+".csv").then(electionResult => {
-                console.log(electionResult);
+                //console.log(electionResult);
                 that.electoralVoteChart.update(electionResult, that.colorScale);
                 that.votePercentageChart.update(electionResult);
                 that.tileChart.update(electionResult, that.colorScale);
@@ -159,20 +165,21 @@ class YearChart {
             let selected = d3.event.selection;
             let selectedYears = [];
             let i = 0;
-            if(selected) {
+            if(selected !== null) {
                 that.svg.selectAll("circle").attr("cx", function() {
                     let cx = parseFloat(d3.select(this).attr("cx"));
                     let r = parseFloat(d3.select(this).attr("r"));
-                    if(cx - r - 5 >= selected[0] && cx - r - 5 < selected[1]) {
-                        //Selection should fully cover the text to be displayed
-                        if((cx + r + 5) <= selected[1]) {
+                    if(cx + r >= selected[0] && cx - r < selected[1]) {
+                        if((cx - r) <= selected[1]) {
                             selectedYears[i++] = d3.select(this).data()[0].YEAR;
                         }
                     }
                     return cx;
                 });
             }
-            that.trendChart.updateYears(selectedYears);
+            if (selectedYears.length != 0) {
+                that.trendChart.updateYears(selectedYears);
+            }
         });
         that.svg.append("g").attr("class", "brush").call(brush);
 

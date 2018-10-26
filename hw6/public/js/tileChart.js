@@ -95,9 +95,10 @@ class TileChart {
                     {"nominee": d.D_Nominee_prop, "votecount": d.D_Votes, "percentage": d.D_Percentage, "party":"D"},
                     {"nominee": d.R_Nominee_prop, "votecount": d.R_Votes, "percentage": d.R_Percentage, "party":"R"}
                 ]
-            }
-            if(d.I_Votes)
+            };
+            if(d.I_Votes) {
                 tooltip_data.result[2] = {"nominee": d.I_Nominee_prop, "votecount": d.I_Votes, "percentage": d.I_Percentage, "party":"I"};
+            }
             return that.tooltip_render(tooltip_data);
 
                     /* populate data in the following format
@@ -136,6 +137,16 @@ class TileChart {
         //HINT: Use the .republican, .democrat and .independent classes to style your elements.
         //Creates a legend element and assigns a scale that needs to be visualized
 
+        //console.log(electionResult);
+
+        for (let i in electionResult) {
+            if (electionResult[i].State_Winner === "") {
+                electionResult[electionResult.length] = electionResult[i];
+            }
+        }
+
+        //console.log(electionResult);
+
         this.maxColumns = d3.max(electionResult, d => parseInt(d["Space"]));
         this.maxRows = d3.max(electionResult, d => parseInt(d["Row"]));
 
@@ -157,17 +168,58 @@ class TileChart {
         let tileWidth = this.svgWidth / (this.maxColumns + 1);
         let tileHeight = this.svgHeight / (this.maxRows + 1);
 
+        //console.log(tileHeight, tileWidth);
+
         let rect = this.svg.selectAll(".tile").data(electionResult);
         let rectEnter = rect.enter().append("rect");
 
         rect.exit().remove();
         rect = rectEnter.merge(rect);
 
-        rect.attr("x", d => parseInt(d.Space) * tileWidth)
+        let width = 0, fill = 0, x_axis = 0;
+        rect.attr("x", function (d) {
+            if (d.State_Winner === "") {
+                if (x_axis === 0) {
+                    x_axis++;
+                    return parseInt(d.Space) * tileWidth;
+                } else {
+                    return parseInt(parseInt(d.Space) * tileWidth + parseFloat(d.R_EV / d.Total_EV) * tileWidth);
+                }
+            }
+            return parseInt(d.Space) * tileWidth;
+        })
             .attr("y", d => parseInt(d.Row) * tileHeight)
             .attr("height", tileHeight)
-            .attr("width", tileWidth)
-            .style("fill", d => colorScale(parseFloat(d.RD_Difference)))
+            .attr("width", function (d) {
+                if (d.State_Winner === "") {
+                    if (width === 0) {
+                        width++;
+                        return parseFloat(d.R_EV / d.Total_EV) * tileWidth;
+                    } else {
+                        return parseFloat(d.D_EV / d.Total_EV) * tileWidth;
+                    }
+                }
+                return tileWidth;
+            })
+            .style("fill", function (d) {
+                if (d.State_Winner === "") {
+                    if (fill=== 0) {
+                        fill++;
+                        let temp = parseFloat(d.R_EV / d.Total_EV) * d.RD_Difference;
+                        if (temp < 0) {
+                            temp = temp * - 1;
+                        }
+                        return colorScale(temp);
+                    } else {
+                        let temp = parseFloat(d.D_EV / d.Total_EV) * d.RD_Difference;
+                        if (temp > 0) {
+                            temp = temp * -1;
+                        }
+                        return colorScale(temp);
+                    }
+                }
+                return colorScale(parseFloat(d.RD_Difference));
+            })
             .classed("tile", true);
 
 

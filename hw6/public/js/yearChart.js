@@ -135,25 +135,19 @@ class YearChart {
             d3.select(this).classed("highlighted", false);
         });
 
-        /*d3.csv("data/Year_Timeline_2012.csv").then(electionResult => {
+        // By default initializing the charts with the year 2012
+        that.svg.selectAll("circle")
+            .filter(function(d) {
+                return yearScale(2012) === yearScale(d.YEAR);
+            })
+            .attr("class", (d) => that.chooseClass(d.PARTY))
+            .classed("selected", true);
+
+        d3.csv("data/Year_Timeline_2012.csv").then(electionResult => {
             that.electoralVoteChart.update(electionResult, that.colorScale);
             that.votePercentageChart.update(electionResult);
             that.tileChart.update(electionResult, that.colorScale);
-        });*/
-
-        circles.on("click", function(d){
-            d3.selectAll(".selected").classed("selected", false);
-            d3.selectAll(".yearChart").attr("r", 10);
-            d3.select(this).classed("selected", true);
-
-            d3.csv("data/Year_Timeline_"+d.YEAR+".csv").then(electionResult => {
-                //console.log(electionResult);
-                that.electoralVoteChart.update(electionResult, that.colorScale);
-                that.votePercentageChart.update(electionResult);
-                that.tileChart.update(electionResult, that.colorScale);
-            });
         });
-
 
        //******* TODO: EXTRA CREDIT *******
        //Implement brush on the year chart created above.
@@ -177,11 +171,34 @@ class YearChart {
                     return cx;
                 });
             }
-            if (selectedYears.length != 0) {
+            if (selectedYears.length !== 0) {
                 that.trendChart.updateYears(selectedYears);
             }
         });
-        that.svg.append("g").attr("class", "brush").call(brush);
+        let clear = that.svg.append("g").attr("class", "brush").call(brush);
+
+
+        circles.on("click", function(d){
+            d3.selectAll(".selected").classed("selected", false);
+            d3.selectAll(".yearChart").attr("r", 10);
+            d3.select(this).classed("selected", true);
+
+            d3.csv("data/Year_Timeline_"+d.YEAR+".csv").then(electionResult => {
+                //console.log(electionResult);
+                that.electoralVoteChart.update(electionResult, that.colorScale);
+                that.votePercentageChart.update(electionResult);
+                that.tileChart.update(electionResult, that.colorScale);
+            });
+
+            // clearing the brush selection when selecting different year through mouse click
+            let temp = [];
+            that.trendChart.updateYears(temp);
+            that.trendChart.demoUpdate(temp);
+            that.trendChart.repUpdate(temp);
+            that.trendChart.indUpdate(temp);
+            clear.call(brush.move, null);
+        });
+
 
     };
 

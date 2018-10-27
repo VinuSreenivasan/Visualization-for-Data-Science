@@ -2,6 +2,8 @@ Visualization 1 - Stacked Bar Chart:
 
 - I have used stacked bar charts to show the political shifts in the selected states.
 - Using this chart, the data is nicely represented and we can clearly see the shifts and percentage of votes.
+- The bar length is scaled according to the percentage of votes got by each party and their corresponding portion has been color scaled as well.
+- I have displayed a text to show which bar is corresponds to which state to distinguish between them.
 - By Interacting with the chart, we can show the nominees and the number of votes for each state according to the selected year.
 - For the given design, we have to click on each year to see the shift but with this design we can see the shift by selecting multiple states over certain period of time.
 
